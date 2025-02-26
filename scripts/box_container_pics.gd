@@ -20,7 +20,7 @@ func populate(button_pictures: bool, lastnumber: int = -1) -> int:
 	print(Singleton.category)
 	var i := 0
 	for pic in Singleton.pics:
-		if pic[0] == Singleton.category:
+		if pic[0] in Singleton.category:
 			sceneNr.append(i)
 		i += 1
 		if sceneNr.size() >= Singleton.varieties:

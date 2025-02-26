@@ -11,6 +11,9 @@ tr_info,Info,Info,Info
 tr_donate,Donate,Spenden,Spenden
 tr_options,Options,Optionen,Optionen
 tr_instructions,,"Dieses Spiel zeigt dir verschiedene Bilder. Nachdem du auf Start gedrückt hast wird eines davon weggenommen. Klicke auf den Button, der dem entferntem Bild entspricht.",
+tr_kofi," If you like what we are doing, you can support us by clicking the above link ↑","Wenn dir gefällt was wir machen, unterstütze uns indem du auf den Link oben klickst ↑",
+tr_credits,,,
+tr_bildlabel,picturedisplay:,Bildanzeige:,
 ,,,
 tr_basil,Basil,Basilikum,Basilikum
 tr_broccoli,Broccoli,Brokkoli,Brokkoli

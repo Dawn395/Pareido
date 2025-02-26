@@ -10,14 +10,15 @@ func create_dir(executeable_path: String) -> void:
 		return
 	var dir_user = DirAccess.open("user://")
 	var dir_exe = DirAccess.open("user://")
-	print_debug("create_dir_sym_link:")
 	dir_user.make_dir(DIRNAMEFOLDER)
+	print_debug("create_dir_sym_link:")
 	print_debug(dir_exe.create_link(DIRNAMEFOLDER, executeable_path.path_join("pareido_data")))
 	dir_user.make_dir(DIRNAMEFOLDER.path_join(DIRNAMEPICS))
 	copy_pics("res://art/pics/", DIRNAMEFOLDER.path_join(DIRNAMEPICS))
 	dir_user.make_dir(DIRNAMEFOLDER.path_join(DIRNAMEFONT))
 	dir_user.copy("res://art/font/add_your_own_font.txt",
 			DIRNAMEFOLDER.path_join(DIRNAMEFONT).path_join("add_your_own_font.txt"))
+
 
 func copy_pics(src: String, dst: String) -> void:
 	var dir = DirAccess.open(src)
@@ -26,8 +27,8 @@ func copy_pics(src: String, dst: String) -> void:
 			DirAccess.open(dst).make_dir(directory)
 			copy_pics(src.path_join(directory), dst.path_join(directory))
 		for file in dir.get_files():
-			#if not file.ends_with(".import"):
-			dir.copy(src.path_join(file),dst.path_join(file))
+			if not file.ends_with(".import"):
+				dir.copy(src.path_join(file),dst.path_join(file))
 
 
 func log_files(basepath: String, path: String, indent: String) -> void:
@@ -81,6 +82,7 @@ func load_pics(basepath: String, path: String) -> void:
 			else:
 				print("another file found")
 
+
 func load_font(path: String) -> void:
 	var dir = DirAccess.open(path)
 	var font_file = FontFile.new()
@@ -103,21 +105,6 @@ func load_font(path: String) -> void:
 		theme.set_font("font", "Button", font_file)
 		theme.set_font("font", "Label", font_file)
 		theme.set_font("font", "LineEdit", font_file)
-
-
-func dir_contents(path: String):
-	var dir = DirAccess.open(path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if dir.current_is_dir():
-				print("Found directory: " + file_name)
-			else:
-				print("Found file: " + file_name)
-			file_name = dir.get_next()
-	else:
-		print("An error occurred when trying to access the path.")
 
 
 func read_pic_dirs() -> Dictionary:
