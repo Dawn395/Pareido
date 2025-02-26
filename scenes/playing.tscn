@@ -1,0 +1,307 @@
+[gd_scene load_steps=10 format=3 uid="uid://covnkucy1wi8j"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_7ggc4"]
+[ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="2_5g4dd"]
+[ext_resource type="Script" path="res://scripts/box_container_pics.gd" id="4_e2ryr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qf3vh"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gu5g"]
+bg_color = Color(99.46, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkyrf"]
+bg_color = Color(100, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bbr3"]
+bg_color = Color(100, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75yoj"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_woxqm"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_7ggc4")
+
+[node name="ExitButton" type="Button" parent="."]
+unique_name_in_owner = true
+z_index = 500
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = 80.0
+grow_horizontal = 0
+tooltip_text = "Beenden"
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_qf3vh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7gu5g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rkyrf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7bbr3")
+text = "X"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+scale = Vector2(115, 65)
+texture = ExtResource("2_5g4dd")
+centered = false
+
+[node name="DisabledTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="GuessTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3600.0
+
+[node name="CorrectTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="StartButton" type="Button" parent="."]
+unique_name_in_owner = true
+z_index = 1000
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 451.0
+offset_top = 550.0
+offset_right = 701.0
+offset_bottom = 630.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "tr_start"
+
+[node name="StartContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = -38.5
+offset_right = 114.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_75yoj")
+
+[node name="VBoxContainerStart" type="VBoxContainer" parent="StartContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartContainer/VBoxContainerStart"]
+layout_mode = 2
+
+[node name="FlagButton" type="Button" parent="StartContainer/VBoxContainerStart/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(115, 0)
+layout_mode = 2
+focus_mode = 0
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="TimeLabel" type="Label" parent="StartContainer/VBoxContainerStart"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.315166, 0.761552, 0.316784, 1)
+theme_override_font_sizes/font_size = 40
+text = "10.54"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="StartContainer/VBoxContainerStart"]
+visible = false
+layout_mode = 2
+
+[node name="LayoutButton" type="Button" parent="StartContainer/VBoxContainerStart/HBoxContainer2"]
+unique_name_in_owner = true
+z_index = 1000
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+text = "tr_layout"
+
+[node name="SymbolsButton" type="Button" parent="StartContainer/VBoxContainerStart/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(115, 0)
+layout_mode = 2
+focus_mode = 0
+icon = SubResource("CompressedTexture2D_woxqm")
+icon_alignment = 1
+expand_icon = true
+
+[node name="RoundsHBoxContainer" type="HBoxContainer" parent="StartContainer/VBoxContainerStart"]
+visible = false
+layout_mode = 2
+
+[node name="RoundsLabel" type="Label" parent="StartContainer/VBoxContainerStart/RoundsHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "tr_rounds"
+horizontal_alignment = 1
+
+[node name="RoundsSpinBox" type="SpinBox" parent="StartContainer/VBoxContainerStart/RoundsHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+value = 3.0
+alignment = 1
+
+[node name="RoundsHSlider" type="HSlider" parent="StartContainer/VBoxContainerStart"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+value = 3.0
+tick_count = 1
+
+[node name="VarietiesHBoxContainer" type="HBoxContainer" parent="StartContainer/VBoxContainerStart"]
+visible = false
+layout_mode = 2
+
+[node name="VarietiesLabel" type="Label" parent="StartContainer/VBoxContainerStart/VarietiesHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "tr_varieties"
+horizontal_alignment = 1
+
+[node name="VarietiesSpinBox" type="SpinBox" parent="StartContainer/VBoxContainerStart/VarietiesHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 2.0
+max_value = 12.0
+value = 8.0
+alignment = 1
+
+[node name="VarietiesHSlider" type="HSlider" parent="StartContainer/VBoxContainerStart"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+min_value = 2.0
+max_value = 12.0
+value = 8.0
+tick_count = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = 50
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+draw_center = false
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="ButtonGen" type="Control" parent="NinePatchRect"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PicGen" type="Control" parent="NinePatchRect"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainerBig" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="NinePatchRect/HBoxContainerBig"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainerPics" type="VBoxContainer" parent="NinePatchRect/HBoxContainerBig"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+alignment = 1
+script = ExtResource("4_e2ryr")
+
+[node name="VegieButtonGrid" type="GridContainer" parent="NinePatchRect/HBoxContainerBig/VBoxContainerPics"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+columns = 4
+
+[node name="VegieButtonGrid" type="GridContainer" parent="NinePatchRect/HBoxContainerBig/VBoxContainerPics/VegieButtonGrid"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+columns = 4
+
+[node name="VBoxContainerRight" type="VBoxContainer" parent="NinePatchRect/HBoxContainerBig"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="timeout" from="DisabledTimer" to="." method="_on_disabledtimer_timeout"]
+[connection signal="timeout" from="CorrectTimer" to="." method="_on_correct_timer_timeout"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartContainer/VBoxContainerStart/HBoxContainer/FlagButton" to="." method="_on_flag_button_pressed"]
+[connection signal="pressed" from="StartContainer/VBoxContainerStart/HBoxContainer2/LayoutButton" to="." method="_on_layout_button_pressed"]
+[connection signal="pressed" from="StartContainer/VBoxContainerStart/HBoxContainer2/SymbolsButton" to="." method="_on_symbols_button_pressed"]
+[connection signal="value_changed" from="StartContainer/VBoxContainerStart/RoundsHBoxContainer/RoundsSpinBox" to="." method="_on_rounds_spin_box_value_changed"]
+[connection signal="value_changed" from="StartContainer/VBoxContainerStart/RoundsHSlider" to="." method="_on_rounds_h_slider_value_changed"]
+[connection signal="value_changed" from="StartContainer/VBoxContainerStart/VarietiesHBoxContainer/VarietiesSpinBox" to="." method="_on_varieties_spin_box_value_changed"]
+[connection signal="value_changed" from="StartContainer/VBoxContainerStart/VarietiesHSlider" to="." method="_on_varieties_h_slider_value_changed"]

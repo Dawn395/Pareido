@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://uh2bgk2dmj0n"]
+
+[ext_resource type="Script" path="res://scripts/simple_choice.gd" id="1_n16kn"]
+[ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="1_oe1ob"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jlyv"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ftb"]
+bg_color = Color(99.46, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy7bp"]
+bg_color = Color(100, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sh4a2"]
+bg_color = Color(100, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="SimpleChoice" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n16kn")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+scale = Vector2(115, 65)
+texture = ExtResource("1_oe1ob")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="VegieButton" type="Button" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+text = "Gemüse"
+
+[node name="OfficeButton" type="Button" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+text = "Büro"
+
+[node name="VehicleButton" type="Button" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+text = "Fahrzeuge"
+
+[node name="AnimalButton" type="Button" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+text = "Tiere"
+
+[node name="ExitButton" type="Button" parent="."]
+unique_name_in_owner = true
+z_index = 500
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -92.0
+offset_top = 40.0
+offset_right = -42.0
+offset_bottom = 90.0
+grow_horizontal = 0
+tooltip_text = "Beenden"
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_5jlyv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6ftb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gy7bp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sh4a2")
+text = "X"
+
+[connection signal="pressed" from="MarginContainer/GridContainer/VegieButton" to="." method="_on_vegie_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/OfficeButton" to="." method="_on_office_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/VehicleButton" to="." method="_on_vehicle_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/AnimalButton" to="." method="_on_animal_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

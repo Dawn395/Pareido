@@ -1,0 +1,61 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cemlxn27frmx0"]
+
+[ext_resource type="FontFile" uid="uid://c53b40dtd8w0v" path="res://art/MulledWineSeason-Medium.otf" id="1_4nlls"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xh1rs"]
+bg_color = Color(0.0917484, 0.408334, 0.418075, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7llv7"]
+bg_color = Color(0.175186, 0.678061, 0.693518, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 3
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_4nlls")
+Button/styles/disabled = SubResource("StyleBoxFlat_xh1rs")
+Button/styles/focus = SubResource("StyleBoxFlat_7llv7")
+Button/styles/hover = SubResource("StyleBoxFlat_7llv7")
+Button/styles/normal = SubResource("StyleBoxFlat_7llv7")
+Button/styles/pressed = SubResource("StyleBoxFlat_7llv7")
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_4nlls")
+LineEdit/font_sizes/font_size = 25
+LineEdit/fonts/font = ExtResource("1_4nlls")

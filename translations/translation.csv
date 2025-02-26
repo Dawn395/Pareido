@@ -1,0 +1,29 @@
+IETF language tag,en,de,de-AT
+,,,
+tr_picture_path,flags/gb.svg,flags/de.svg,flags/at.svg
+,,,
+tr_layout,change layout,Ausrichtung ändern,Ausrichtung ändern
+tr_rounds,# rounds,# Runden,# Runden
+tr_varieties,# varieties,# Sorten,# Sorten
+tr_start,Start,Start,Start
+tr_credits,Credits,Mitwirkende,Mitwirkende
+tr_info,Info,Info,Info
+tr_donate,Donate,Spenden,Spenden
+tr_options,Options,Optionen,Optionen
+tr_instructions,,"Dieses Spiel zeigt dir verschiedene Bilder. Nachdem du auf Start gedrückt hast wird eines davon weggenommen. Klicke auf den Button, der dem entferntem Bild entspricht.",
+,,,
+tr_basil,Basil,Basilikum,Basilikum
+tr_broccoli,Broccoli,Brokkoli,Brokkoli
+tr_carrot,Carrot,Karotte,Karotte
+tr_chanterelle,Chanterelle,Pfifferling,Eierschwammerl
+tr_cucumber,Cucumber,Gurke,Gurke
+tr_eggplant,Eggplant,Aubergine,Melanzani
+tr_garlic,Garlic,Knoblauch,Knoblauch
+tr_leek,Leek,Lauch,Lauch
+tr_paprika,Paprika,Paprika,Paprika
+tr_potato,Potato,Kartoffel,Erdäpfel
+tr_pumpkin,Pumpkin,Kürbis,Kürbis
+tr_salad,Salad,Salat,Salat
+tr_scallion,Scallion,Jungzwiebel,Jungzwiebel
+tr_tomato,Tomato,Tomate,Paradeiser
+tr_zucchini,Zucchini,Zucchini,Zucchini

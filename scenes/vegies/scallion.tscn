@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c37rbqlet0lou"]
+
+[ext_resource type="Script" path="res://scripts/picture.gd" id="1_bgruf"]
+[ext_resource type="Texture2D" uid="uid://cv30ntj1k4856" path="res://art/pics/vehicles/scallion.png" id="2_0c24l"]
+
+[node name="CenterContainer" type="CenterContainer"]
+z_index = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_bgruf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="Control"]
+unique_name_in_owner = true
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_0c24l")

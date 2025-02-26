@@ -1,0 +1,5 @@
+Du kannst deine eigenen Bilder hinzufügen!
+Gib deine Bilder in einen eigenen Ordner, und das Programm sollte sie anzeigen.
+
+Hier sind die unterstützten Datenformate:
+https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_images.html

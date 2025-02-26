@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjisuouc8d8mx"]
+
+[sub_resource type="GDScript" id="GDScript_kdbkx"]
+script/source = "extends Node
+
+var LANGUAGES
+
+const DIRNAME = \"pareido_data\"
+const DIRNAMEFONT = \"font\"
+const DIRNAMEPICS = \"pictures\"
+const MAX_VARIETIES := 12
+const MAX_ROUNDS := 10
+var font_override: FontFile
+
+var missingVeg :int
+var cur_rounds := 1
+var max_rounds := 3
+var running := false
+var side_buttons := true
+var button_pictures := false
+var alreadychanged := false
+var varieties := 8
+var cur_language_nr : int
+
+const BUTTON := preload(\"res://scenes/button.tscn\")
+const SCENES := [
+		[preload(\"res://scenes/vegies/basil.tscn\"), \"key_basil\",],
+		[preload(\"res://scenes/vegies/broccoli.tscn\"), \"key_broccoli\",],
+		[preload(\"res://scenes/vegies/carrot.tscn\"), \"key_carrot\",],
+		[preload(\"res://scenes/vegies/chanterelle.tscn\"), \"key_chanterelle\",],
+		[preload(\"res://scenes/vegies/eggplant.tscn\"), \"key_eggplant\",],
+		[preload(\"res://scenes/vegies/garlic.tscn\"), \"key_garlic\",],
+		[preload(\"res://scenes/vegies/leek.tscn\"), \"key_leek\",],
+		[preload(\"res://scenes/vegies/paprika.tscn\"), \"key_paprika\",],
+		[preload(\"res://scenes/vegies/potato.tscn\"), \"key_potato\",],
+		[preload(\"res://scenes/vegies/pumpkin.tscn\"), \"key_pumpkin\",],
+		[preload(\"res://scenes/vegies/salad.tscn\"), \"key_salad\",],
+		[preload(\"res://scenes/vegies/scallion.tscn\"), \"key_scallion\",],
+		[preload(\"res://scenes/vegies/tomato.tscn\"), \"key_tomato\",],
+		[preload(\"res://scenes/vegies/zucchini.tscn\"), \"key_zucchini\",],
+		]
+"
+
+[node name="root" type="Node"]
+script = SubResource("GDScript_kdbkx")

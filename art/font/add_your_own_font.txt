@@ -1,0 +1,4 @@
+You can add your own font here!
+
+Here is the list of supported font formats:
+https://docs.godotengine.org/en/stable/tutorials/io/runtime_file_loading_and_saving.html#fonts
