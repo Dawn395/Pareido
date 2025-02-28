@@ -77,24 +77,15 @@ func _ready() -> void:
 	cur_language_nr = TranslationServer.get_loaded_locales().find(TranslationServer.get_locale())
 	#%FlagButton.icon = load("res://translations/%s" % tr("tr_picture_path"))
 	
-	match OS.get_name():
-		"Windows":
-			print("Welcome to Windows!")
-		"macOS":
-			print("Welcome to macOS!")
-		"Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD":
-			print("Welcome to Linux/BSD!")
-		"Android":
-			print("Welcome to Android!")
-		"iOS":
-			print("Welcome to iOS!")
-		"Web":
-			print("Welcome to the Web!")
-		
 	var executeable_path :String = OS.get_executable_path().get_base_dir()
 	print_debug(executeable_path)
+	#match OS.get_name():
+		#"Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD" :
 	directory.create_dir(executeable_path)
-	directory.load_resources(executeable_path)
+	directory.load_resources("user://pareido_data/pictures")
+		#"Android", "iOS", "Web":
+			#directory.load_resources("res://art/pics_imported/")
+
 
 func create_tooltip(mouse_pos : Vector2, text :String) -> void:
 	if current_tooltip:
