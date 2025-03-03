@@ -14,7 +14,7 @@ func create_dir(executeable_path: String) -> void:
 	print_debug("create_dir_sym_link:")
 	print_debug(dir_exe.create_link(DIRNAMEFOLDER, executeable_path.path_join("pareido_data")))
 	dir_user.make_dir(DIRNAMEFOLDER.path_join(DIRNAMEPICS))
-	copy_pics("res://art/pics_png/", DIRNAMEFOLDER.path_join(DIRNAMEPICS))
+	copy_pics("res://art/pics/", DIRNAMEFOLDER.path_join(DIRNAMEPICS))
 	dir_user.make_dir(DIRNAMEFOLDER.path_join(DIRNAMEFONT))
 	dir_user.copy("res://art/font/add_your_own_font.txt",
 			DIRNAMEFOLDER.path_join(DIRNAMEFONT).path_join("add_your_own_font.txt"))
@@ -66,11 +66,7 @@ func load_pics(basepath: String, path: String) -> void:
 			print("file found:" + file)
 			if not (file.to_lower().ends_with(".txt")
 					or file.to_lower().ends_with(".import")):
-				#var texture
 				print_debug(basepath)
-				#if basepath.contains("res://"):
-					#texture = load(path.path_join(file))
-				#else:
 				var image = Image.load_from_file(path.path_join(file))
 				var texture = ImageTexture.create_from_image(image)
 				Singleton.pics.push_back([path.trim_prefix(basepath), texture, "tr_" + file.get_basename()])

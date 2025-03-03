@@ -55,18 +55,18 @@ func _change_option_button() -> void:
 			%Options.icon = null
 		1:
 			%Options.text = ""
-			var image = Image.load_from_file("res://art/pics_png/vehicles/car.png")
+			var image = Image.load_from_file("res://art/pics/vehicles/car.png")
 			var texture = ImageTexture.create_from_image(image)
 			%Options.icon = texture
 			%Options.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		2:
 			%Options.text = "Bildtext"
 			#%Options.icon = load("res://art/pics/office/eggplant_high.png")
-			var image = Image.load_from_file("res://art/pics_png/vehicles/car.png")
+			var image = Image.load_from_file("res://art/pics/vehicles/car.png")
 			var texture = ImageTexture.create_from_image(image)
 			%Options.icon = texture
 			%Options.icon_alignment = HORIZONTAL_ALIGNMENT_LEFT
-			
+
 
 func _on_credits_button_pressed() -> void:
 	if info_mode:

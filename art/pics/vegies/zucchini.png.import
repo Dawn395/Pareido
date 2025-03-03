@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce2yt82p041q7"
-path="res://.godot/imported/cucumber.png-af8e952dc9c466f2768b759b9ad219da.ctex"
+uid="uid://cd6b6r7p3beav"
+path="res://.godot/imported/zucchini.png-6459bb24598e22daa1edb6deaef1fbf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/pics_imported/vegies/cucumber.png"
-dest_files=["res://.godot/imported/cucumber.png-af8e952dc9c466f2768b759b9ad219da.ctex"]
+source_file="res://art/pics/vegies/zucchini.png"
+dest_files=["res://.godot/imported/zucchini.png-6459bb24598e22daa1edb6deaef1fbf8.ctex"]
 
 [params]
 

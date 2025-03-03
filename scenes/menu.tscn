@@ -27,9 +27,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -177.0
-offset_top = 550.0
+offset_top = 535.0
 offset_right = -64.0
-offset_bottom = 578.0
+offset_bottom = 563.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -84,7 +84,7 @@ size_flags_vertical = 10
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 50)
+custom_minimum_size = Vector2(250, 65)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
@@ -102,7 +102,7 @@ text = "X"
 
 [node name="Options" type="Button" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 50)
+custom_minimum_size = Vector2(250, 65)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
