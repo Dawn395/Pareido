@@ -25,4 +25,5 @@ func shake(scale: float = 1, rotate: float = Singleton.MAX_ROTATION) -> void:
 			randf_range(scale * -Singleton.POS_VAR , scale * Singleton.POS_VAR  ),
 			randf_range(scale * -Singleton.POS_VAR  , scale * Singleton.POS_VAR  ))
 	%Sprite.rotation = randf_range(-rotate, rotate)
-	%Sprite.flip_h = randi_range(0, 1)
+	if Singleton.flip_pics:
+		%Sprite.flip_h = randi_range(0, 1)

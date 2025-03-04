@@ -11,8 +11,7 @@ func create_dir(executeable_path: String) -> void:
 	var dir_user = DirAccess.open("user://")
 	var dir_exe = DirAccess.open("user://")
 	dir_user.make_dir(DIRNAMEFOLDER)
-	print_debug("create_dir_sym_link:")
-	print_debug(dir_exe.create_link(DIRNAMEFOLDER, executeable_path.path_join("pareido_data")))
+	dir_exe.create_link(DIRNAMEFOLDER, executeable_path.path_join("pareido_data"))
 	dir_user.make_dir(DIRNAMEFOLDER.path_join(DIRNAMEPICS))
 	copy_pics("res://art/pics/", DIRNAMEFOLDER.path_join(DIRNAMEPICS))
 	dir_user.make_dir(DIRNAMEFOLDER.path_join(DIRNAMEFONT))
@@ -46,35 +45,22 @@ func log_files(basepath: String, path: String, indent: String) -> void:
 func load_resources(path: String) -> void:
 	var dir = DirAccess.open(path)
 	print_debug("load_resources")
-
 	load_pics(path, path)
 	if dir.dir_exists(DIRNAMEFOLDER.path_join(DIRNAMEFONT)):
 		load_font(DIRNAMEFOLDER.path_join(DIRNAMEFONT))
 
 
 func load_pics(basepath: String, path: String) -> void:
-	print("   ")
-	print("path: " + path)
-	print("basepath: " + basepath)
-	print("   ")
 	var dir = DirAccess.open(path)
 	if dir:
-		print("dir opened successful")
 		for directory in dir.get_directories():
 			load_pics(basepath, path.path_join(directory))
 		for file in dir.get_files():
-			print("file found:" + file)
 			if not (file.to_lower().ends_with(".txt")
 					or file.to_lower().ends_with(".import")):
-				print_debug(basepath)
 				var image = Image.load_from_file(path.path_join(file))
 				var texture = ImageTexture.create_from_image(image)
 				Singleton.pics.push_back([path.trim_prefix(basepath), texture, "tr_" + file.get_basename()])
-				print("new Push:")
-				print(texture)
-				print(path.trim_prefix(basepath))
-				print(path.path_join(file))
-				print("tr_" + file.get_basename())
 
 
 func load_font(path: String) -> void:

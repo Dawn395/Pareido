@@ -46,7 +46,6 @@ func _on_options_pressed() -> void:
 		Singleton.pic_button_status %= 3
 		_change_option_button()
 
-				
 
 func _change_option_button() -> void:
 	match Singleton.pic_button_status:

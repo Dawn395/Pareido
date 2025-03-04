@@ -59,6 +59,7 @@ const SCENE_OPTIONS = null #TODO
 const TARGET :int = 200 # Target size for all sprites
 const POS_VAR :int = 50 # random position variance of sprites
 const MAX_ROTATION :float = deg_to_rad(45) # max degree that sprites are rotated
+var flip_pics := false
 
 func _ready() -> void:
 	randomize()

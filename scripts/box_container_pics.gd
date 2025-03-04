@@ -31,6 +31,7 @@ func populate(button_pictures: bool, lastnumber: int = -1) -> int:
 	delete_buttons()
 	for nr in sceneNr:
 		gen_button(nr, Singleton.pics[nr][2], Singleton.pics[nr][1])
+	sort_buttons()
 	distribute_buttons()
 	
 	while Singleton.running:
@@ -42,15 +43,12 @@ func populate(button_pictures: bool, lastnumber: int = -1) -> int:
 	
 	delete_pics()
 	for nr in sceneNr:
-		#var instance: Node = Singleton.SCENES[sceneNr.pop_back()][0].instantiate()
-		# Invalid call. Nonexistent function 'init' in base 'CompressedTexture2D'.
 		var texture :Texture = Singleton.pics[nr][1]
-		print(texture)
 		var instance :Node = Singleton.PICTURE.instantiate()
 		instance.init(texture)
 		instance.add_to_group("pic")
 		%PicGen.add_child(instance)
-	sort_buttons()
+	sort_pics()
 	distribute_pics()
 	#sendMissingScene.emit(sceneNr.pop_back())
 	return missingVeg
@@ -109,7 +107,17 @@ func create_box_container(vbox :bool) -> BoxContainer:
 
 
 func sort_buttons() -> void:
-	#TODO Sort shit according to language
+	var sorted := false
+	while not sorted:
+		sorted = true
+		for i in range(0, %ButtonGen.get_child_count() - 2):
+			if tr(%ButtonGen.get_child(i).text) > tr(%ButtonGen.get_child(i + 1).text):
+				%ButtonGen.move_child(%ButtonGen.get_child(i + 1), i)
+				sorted = false
+
+
+func sort_pics() -> void:
+	#TODO
 	pass
 
 
