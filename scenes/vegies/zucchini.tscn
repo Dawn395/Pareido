@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://du6oup0f1gkb0"]
 
-[ext_resource type="Script" path="res://scripts/picture.gd" id="1_o0gx2"]
-[ext_resource type="Texture2D" uid="uid://w2n8tqhcrd0j" path="res://art/pics/office/zucchini.png" id="2_puulu"]
+[ext_resource type="Script" uid="uid://cx7txc6rilidg" path="res://scripts/picture.gd" id="1_o0gx2"]
+
+[sub_resource type="Resource" id="Resource_2oca7"]
+metadata/__load_path__ = "res://art/pics/office/zucchini.png"
 
 [node name="CenterContainer" type="CenterContainer"]
 z_index = 5
@@ -20,4 +22,4 @@ layout_mode = 2
 [node name="Sprite" type="Sprite2D" parent="Control"]
 unique_name_in_owner = true
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_puulu")
+texture = SubResource("Resource_2oca7")

@@ -1,5 +1,6 @@
 extends Node
 
+var first_start := true
 var running := false
 var side_buttons := true # depreciated?
 var button_pictures := false # if the buttons should display pictures
@@ -97,7 +98,7 @@ func create_tooltip(mouse_pos : Vector2, text :String) -> void:
 
 
 func exit_game() -> void:
-	#TODO clean up .import Files from pictures
+	#TODO write settings to config?
 	get_tree().quit()
 
 

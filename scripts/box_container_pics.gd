@@ -47,6 +47,7 @@ func populate(button_pictures: bool, lastnumber: int = -1) -> int:
 		var instance :Node = Singleton.PICTURE.instantiate()
 		instance.init(texture)
 		instance.add_to_group("pic")
+		instance.set_meta("name", Singleton.pics[nr][2])
 		%PicGen.add_child(instance)
 	sort_pics()
 	distribute_pics()
@@ -85,11 +86,12 @@ func distribute_pics() -> void:
 		var box := create_box_container(Singleton.side_buttons)
 		bigbox.add_child(box)
 	
+	#TODO Better sorting
 	var i := 0
 	while %PicGen.get_child_count() != 0:
 		var pic :Control = %PicGen.get_child(0)
 		%PicGen.remove_child(pic)
-		bigbox.get_child(i % rows).add_child(pic)
+		bigbox.get_child(i / 4).add_child(pic)
 		i += 1
 	$"../../..".exit_button_reset()
 
@@ -110,15 +112,21 @@ func sort_buttons() -> void:
 	var sorted := false
 	while not sorted:
 		sorted = true
-		for i in range(0, %ButtonGen.get_child_count() - 2):
+		for i in range(%ButtonGen.get_child_count() - 2):
 			if tr(%ButtonGen.get_child(i).text) > tr(%ButtonGen.get_child(i + 1).text):
 				%ButtonGen.move_child(%ButtonGen.get_child(i + 1), i)
 				sorted = false
 
 
 func sort_pics() -> void:
-	#TODO
-	pass
+	var sorted := false
+	while not sorted:
+		sorted = true
+		var test :Sprite2D
+		for i in range(%PicGen.get_child_count() - 2):
+			if tr(%PicGen.get_child(i).get_meta("name")) > tr(%PicGen.get_child(i + 1).get_meta("name")):
+				%PicGen.move_child(%PicGen.get_child(i + 1), i)
+				sorted = false
 
 
 func distribute_buttons() -> void:

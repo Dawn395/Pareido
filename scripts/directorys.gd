@@ -60,7 +60,10 @@ func load_pics(basepath: String, path: String) -> void:
 					or file.to_lower().ends_with(".import")):
 				var image = Image.load_from_file(path.path_join(file))
 				var texture = ImageTexture.create_from_image(image)
-				Singleton.pics.push_back([path.trim_prefix(basepath), texture, "tr_" + file.get_basename()])
+				var filename = "tr_" + file.get_basename()
+				if tr(filename) == filename:
+					filename = file.get_basename()
+				Singleton.pics.push_back([path.trim_prefix(basepath), texture, filename])
 
 
 func load_font(path: String) -> void:

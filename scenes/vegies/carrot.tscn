@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://mgjjjwn0ttfs"]
 
-[ext_resource type="Texture2D" uid="uid://dxjvh3p4vrf36" path="res://art/pics/vegies/carrot.png" id="1_06gej"]
-[ext_resource type="Script" path="res://scripts/picture.gd" id="1_yw84b"]
+[ext_resource type="Script" uid="uid://cx7txc6rilidg" path="res://scripts/picture.gd" id="1_yw84b"]
+
+[sub_resource type="Resource" id="Resource_cm4gk"]
+metadata/__load_path__ = "res://art/pics/vegies/carrot.png"
 
 [node name="CenterContainer" type="CenterContainer"]
 z_index = 5
@@ -20,4 +22,4 @@ layout_mode = 2
 [node name="Sprite" type="Sprite2D" parent="Control"]
 unique_name_in_owner = true
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_06gej")
+texture = SubResource("Resource_cm4gk")

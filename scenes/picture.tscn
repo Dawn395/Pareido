@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c0c17frxsnmrk"]
 
-[ext_resource type="Script" path="res://scripts/picture.gd" id="1_b80yi"]
+[ext_resource type="Script" uid="uid://cx7txc6rilidg" path="res://scripts/picture.gd" id="1_b80yi"]
 
 [node name="CenterContainer" type="CenterContainer"]
 z_index = 5

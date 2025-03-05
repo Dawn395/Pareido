@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi5bn1o05rth"]
+[gd_scene load_steps=7 format=3 uid="uid://bi5bn1o05rth"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_12vmo"]
+[ext_resource type="Script" uid="uid://cagyfwjb1jokp" path="res://scripts/main_menu.gd" id="1_12vmo"]
 [ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="1_kx4k4"]
 [ext_resource type="Texture2D" uid="uid://1p3lqijc6vey" path="res://art/kofi_klein.png" id="3_3jqqq"]
 [ext_resource type="Texture2D" uid="uid://d05anl1bjguxk" path="res://art/Werkraum Himberg Logo.jpg" id="3_k3p0x"]
 [ext_resource type="Texture2D" uid="uid://bug3cdmx1bkgv" path="res://art/myfullLogoKofi.png" id="4_vs408"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+bg_color = Color(0.099986, 0.099986, 0.099986, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,6 +29,7 @@ texture = ExtResource("1_kx4k4")
 centered = false
 
 [node name="BildLabel" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -35,33 +43,28 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "tr_bildlabel"
 
-[node name="InstructionLabel" type="Label" parent="."]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 0
-offset_left = 50.0
+[node name="Options" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+offset_left = 1022.0
 offset_top = 50.0
-offset_right = 350.0
-offset_bottom = 350.0
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "tr_instructions"
-autowrap_mode = 3
+offset_right = 1102.0
+offset_bottom = 130.0
+size_flags_horizontal = 6
+size_flags_vertical = 8
+focus_mode = 0
+text = "Opt"
+expand_icon = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 9.0
-offset_right = 4.0
-offset_bottom = 9.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
+offset_left = 380.0
+offset_top = 9.0
+offset_right = 780.0
+offset_bottom = 409.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Pareido
@@ -69,53 +72,76 @@ text = "Pareido
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" type="Button" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
+offset_left = 430.0
+offset_top = 413.0
+offset_right = 730.0
+offset_bottom = 513.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
 text = "tr_start"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 10
-
-[node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="CreditsButton" type="Button" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 65)
 layout_mode = 2
+offset_left = 130.0
+offset_top = 525.0
+offset_right = 380.0
+offset_bottom = 590.0
 size_flags_horizontal = 6
 size_flags_vertical = 8
 focus_mode = 0
 text = "tr_credits"
 
-[node name="ExitButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="ExitButton" type="Button" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 80)
-layout_mode = 2
+custom_minimum_size = Vector2(150, 65)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = 201.0
+offset_right = 74.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 focus_mode = 0
 text = "X"
 
-[node name="Options" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="DonateButton" type="Button" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 65)
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 8
-focus_mode = 0
+offset_left = 800.0
+offset_top = 525.0
+offset_right = 1050.0
+offset_bottom = 590.0
+keep_pressed_outside = true
+text = "tr_donate"
+icon = ExtResource("3_3jqqq")
 expand_icon = true
 
-[node name="VersionLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_right = 99.0
+grow_vertical = 0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
-text = "Version 1.0
-"
+text = " Version 1.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -123,29 +149,21 @@ vertical_alignment = 1
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_left = 1000.0
-offset_top = 300.0
-offset_right = 1070.0
-offset_bottom = 370.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.5
+offset_top = -70.0
+offset_right = 47.5
+grow_horizontal = 2
+grow_vertical = 0
 focus_mode = 0
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 toggle_mode = true
 text = "tr_info"
-
-[node name="DonateButton" type="Button" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 50)
-layout_direction = 2
-layout_mode = 0
-offset_left = 900.0
-offset_top = 400.0
-offset_right = 1100.0
-offset_bottom = 470.0
-keep_pressed_outside = true
-text = "tr_donate"
-icon = ExtResource("3_3jqqq")
-expand_icon = true
 
 [node name="DonateMarginContainer" type="MarginContainer" parent="."]
 unique_name_in_owner = true
@@ -202,6 +220,44 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Okay"
 
+[node name="InstructionsMarginContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -204.0
+offset_right = 300.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="InstructionsMarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ytvr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InstructionsMarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="InstructionLabel" type="Label" parent="InstructionsMarginContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "tr_instructions"
+autowrap_mode = 3
+
+[node name="InstructionsCloseButton" type="Button" parent="InstructionsMarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Okay"
+
 [node name="CreditMarginContainer" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -249,13 +305,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Okay"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="toggled" from="InfoButton" to="." method="_on_info_button_toggled"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="DonateButton" to="." method="_on_donate_button_pressed"]
+[connection signal="toggled" from="InfoButton" to="." method="_on_info_button_toggled"]
 [connection signal="pressed" from="DonateMarginContainer/PanelContainer/VBoxContainer/KoFiButton" to="." method="_on_ko_fi_button_pressed"]
 [connection signal="pressed" from="DonateMarginContainer/PanelContainer/VBoxContainer/DonateCloseButton" to="." method="_on_donate_close_button_pressed"]
+[connection signal="pressed" from="InstructionsMarginContainer/PanelContainer/VBoxContainer/InstructionsCloseButton" to="." method="_on_instructions_close_button_pressed"]
 [connection signal="pressed" from="CreditMarginContainer/PanelContainer/VBoxContainer/WerkRaumButton" to="." method="_on_werk_raum_button_pressed"]
 [connection signal="pressed" from="CreditMarginContainer/PanelContainer/VBoxContainer/CreditCloseButton" to="." method="_on_credit_button_pressed"]

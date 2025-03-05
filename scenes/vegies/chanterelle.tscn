@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtly5u4n6u1gq"]
 
-[ext_resource type="Script" path="res://scripts/picture.gd" id="1_lngwl"]
-[ext_resource type="Texture2D" uid="uid://d2he8w8d6t6xe" path="res://art/pics/vegies/chanterelle.png" id="2_bobhm"]
+[ext_resource type="Script" uid="uid://cx7txc6rilidg" path="res://scripts/picture.gd" id="1_lngwl"]
+
+[sub_resource type="Resource" id="Resource_e2k5i"]
+metadata/__load_path__ = "res://art/pics/vegies/chanterelle.png"
 
 [node name="CenterContainer" type="CenterContainer"]
 z_index = 5
@@ -20,4 +22,4 @@ layout_mode = 2
 [node name="Sprite" type="Sprite2D" parent="Control"]
 unique_name_in_owner = true
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_bobhm")
+texture = SubResource("Resource_e2k5i")

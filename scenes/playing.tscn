@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://covnkucy1wi8j"]
 
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_7ggc4"]
+[ext_resource type="Script" uid="uid://cpv5gw1dg8x06" path="res://scripts/game.gd" id="1_7ggc4"]
 [ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="2_5g4dd"]
-[ext_resource type="Script" path="res://scripts/box_container_pics.gd" id="4_e2ryr"]
+[ext_resource type="Script" uid="uid://x23d3l3pxdv1" path="res://scripts/box_container_pics.gd" id="4_e2ryr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qf3vh"]
 bg_color = Color(1, 0, 0, 1)
@@ -106,7 +106,6 @@ text = "tr_start"
 
 [node name="StartContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 z_index = 100
 layout_mode = 1
 anchors_preset = 8
@@ -141,8 +140,8 @@ expand_icon = true
 
 [node name="TimeLabel" type="Label" parent="StartContainer/VBoxContainerStart"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.315166, 0.761552, 0.316784, 1)
 theme_override_font_sizes/font_size = 40
 text = "10.54"

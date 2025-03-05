@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cbvghcjksy4bq"]
 
-[ext_resource type="Script" path="res://scripts/tooltip.gd" id="1_nthih"]
+[ext_resource type="Script" uid="uid://cn5jvtimuycvl" path="res://scripts/tooltip.gd" id="1_nthih"]
 
 [node name="Info_tscn" type="Control"]
 layout_mode = 3

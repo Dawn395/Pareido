@@ -5,6 +5,7 @@ var info_mode := false
 func _ready() -> void:
 	var root = get_tree().root
 	Singleton.scene_current = root.get_child(-1)
+	%InstructionsMarginContainer.visible = Singleton.first_start
 	_change_option_button()
 
 
@@ -89,3 +90,8 @@ func _on_donate_close_button_pressed() -> void:
 
 func _on_ko_fi_button_pressed() -> void:
 	OS.shell_open("https://ko-fi.com/") 
+
+
+func _on_instructions_close_button_pressed() -> void:
+	%InstructionsMarginContainer.visible = false
+	Singleton.first_start = false
