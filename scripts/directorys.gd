@@ -1,22 +1,19 @@
 extends Node
 
-const DIRNAMEPICS = "pictures"
-const DIRNAMEFONT = "font"
-const DIRNAMEFOLDER = "user://pareido_data"
-
 
 func create_dir(executeable_path: String) -> void:
 	#if DirAccess.dir_exists_absolute(DIRNAMEFOLDER):
 		#return
-	var dir_user = DirAccess.open("user://")
-	var dir_exe = DirAccess.open("user://")
-	dir_user.make_dir(DIRNAMEFOLDER)
-	dir_exe.create_link(DIRNAMEFOLDER, executeable_path.path_join("pareido_data"))
-	dir_user.make_dir(DIRNAMEFOLDER.path_join(DIRNAMEPICS))
-	copy_pics("res://art/pics/", DIRNAMEFOLDER.path_join(DIRNAMEPICS))
-	dir_user.make_dir(DIRNAMEFOLDER.path_join(DIRNAMEFONT))
-	dir_user.copy("res://art/font/add_your_own_font.txt",
-			DIRNAMEFOLDER.path_join(DIRNAMEFONT).path_join("add_your_own_font.txt"))
+	var dir= DirAccess.open("user://")
+	dir.make_dir(Singleton.DIRNAMEFOLDER)
+	dir.create_link(Singleton.DIRNAMEFOLDER, executeable_path.path_join("pareido_data"))
+	dir.make_dir(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEPICS))
+	copy_pics("res://art/pics/", Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEPICS))
+	#Singleton.pic_folders = read_pic_dirs()
+	
+	dir.make_dir(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEFONT))
+	dir.copy("res://art/font/add_your_own_font.txt",
+			Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEFONT).path_join("add_your_own_font.txt"))
 
 
 func copy_pics(src: String, dst: String) -> void:
@@ -37,23 +34,34 @@ func log_files(basepath: String, path: String, indent: String) -> void:
 			print(indent + "DIR %s" % directory);
 			log_files(basepath, path.path_join(directory), indent + "- ")
 		for file in dir.get_files():
-			#if not (file.to_lower().ends_with(".txt") or file.to_lower().ends_with(".import")):
-				#Image.load_from_file(path.path_join(file))
 			print(indent + "FILE %s" % file);
 
 
 func load_resources(path: String) -> void:
 	var dir = DirAccess.open(path)
 	print_debug("load_resources")
+	
+	load_config(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEINI))
 	load_pics(path, path)
-	if dir.dir_exists(DIRNAMEFOLDER.path_join(DIRNAMEFONT)):
-		load_font(DIRNAMEFOLDER.path_join(DIRNAMEFONT))
+	if dir.dir_exists(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEFONT)):
+		load_font(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEFONT))
+		
+
+
+func load_config(path: String):
+	Singleton.config = ConfigFile.new()
+	if Singleton.config.load(path) != OK:
+		Singleton.config = ConfigFile.new()
+		Singleton.config.set_value("global","starting_infobox", true)
+	Singleton.starting_infobox = Singleton.config.get_value("global","starting_infobox")
+	Singleton.config.save(path)
 
 
 func load_pics(basepath: String, path: String) -> void:
 	var dir = DirAccess.open(path)
 	if dir:
-		for directory in dir.get_directories():
+		for directory :String in dir.get_directories():
+			Singleton.pic_folders.push_back(path.path_join(directory))
 			load_pics(basepath, path.path_join(directory))
 		for file in dir.get_files():
 			if not (file.to_lower().ends_with(".txt")
@@ -63,7 +71,8 @@ func load_pics(basepath: String, path: String) -> void:
 				var filename = "tr_" + file.get_basename()
 				if tr(filename) == filename:
 					filename = file.get_basename()
-				Singleton.pics.push_back([path.trim_prefix(basepath), texture, filename])
+				Singleton.pics.push_back([path.trim_prefix(basepath).right(-1), texture, filename])
+				Singleton.pics_new.push_back([false, path, filename])
 
 
 func load_font(path: String) -> void:
@@ -93,7 +102,7 @@ func load_font(path: String) -> void:
 func read_pic_dirs() -> Dictionary:
 	var dict: Dictionary
 	for item: String in Singleton.pics:
-		var pos: int =  item.find(DIRNAMEPICS)
-		var str: String = item.substr(pos + DIRNAMEPICS.length() + 1)
+		var pos: int =  item.find(Singleton.DIRNAMEPICS)
+		var str: String = item.substr(pos + Singleton.DIRNAMEPICS.length() + 1)
 		dict.get_or_add(str.get_base_dir(), item)
 	return dict

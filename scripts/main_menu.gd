@@ -5,7 +5,10 @@ var info_mode := false
 func _ready() -> void:
 	var root = get_tree().root
 	Singleton.scene_current = root.get_child(-1)
-	%InstructionsMarginContainer.visible = Singleton.first_start
+	await get_tree().process_frame
+	%InstructionsMarginContainer.visible = Singleton.starting_infobox
+	if Singleton.config.get_value("global", "pic_button_status") != null:
+		Singleton.pic_button_status = Singleton.config.get_value("global", "pic_button_status")
 	_change_option_button()
 
 
@@ -37,6 +40,7 @@ func _on_donate_button_pressed() -> void:
 	else:
 		%DonateMarginContainer.visible = true
 
+
 func _on_options_pressed() -> void:
 	if info_mode:
 		Singleton.create_tooltip(get_global_mouse_position(),
@@ -45,27 +49,28 @@ func _on_options_pressed() -> void:
 	else:
 		Singleton.pic_button_status += 1
 		Singleton.pic_button_status %= 3
+		Singleton.config.set_value("global", "pic_button_status", Singleton.pic_button_status)
+		Singleton.config.save(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEINI))
 		_change_option_button()
 
 
 func _change_option_button() -> void:
 	match Singleton.pic_button_status:
 		0:
-			%Options.text = "Bildtext"
-			%Options.icon = null
+			%PictureOptionButton.text = "Bildtext"
+			%PictureOptionButton.icon = null
 		1:
-			%Options.text = ""
+			%PictureOptionButton.text = ""
 			var image = Image.load_from_file("res://art/pics/vehicles/car.png")
 			var texture = ImageTexture.create_from_image(image)
-			%Options.icon = texture
-			%Options.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			%PictureOptionButton.icon = texture
+			%PictureOptionButton.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		2:
-			%Options.text = "Bildtext"
-			#%Options.icon = load("res://art/pics/office/eggplant_high.png")
+			%PictureOptionButton.text = "Bildtext"
 			var image = Image.load_from_file("res://art/pics/vehicles/car.png")
 			var texture = ImageTexture.create_from_image(image)
-			%Options.icon = texture
-			%Options.icon_alignment = HORIZONTAL_ALIGNMENT_LEFT
+			%PictureOptionButton.icon = texture
+			%PictureOptionButton.icon_alignment = HORIZONTAL_ALIGNMENT_LEFT
 
 
 func _on_credits_button_pressed() -> void:
@@ -89,9 +94,20 @@ func _on_donate_close_button_pressed() -> void:
 
 
 func _on_ko_fi_button_pressed() -> void:
-	OS.shell_open("https://ko-fi.com/") 
+	OS.shell_open("https://ko-fi.com/")
 
 
 func _on_instructions_close_button_pressed() -> void:
 	%InstructionsMarginContainer.visible = false
-	Singleton.first_start = false
+	Singleton.starting_infobox = false
+	Singleton.config.set_value("global", "starting_infobox", false)
+	Singleton.config.save(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEINI))
+
+
+func _on_options_button_pressed() -> void:
+	#var item :TreeItem = Singleton.tree.get_root()
+	#while item:
+		#print(item)
+		#print(item.get_text(0))
+		#item = item.get_next_in_tree()
+	Singleton.goto_scene(Singleton.SCENE_OPTIONS)

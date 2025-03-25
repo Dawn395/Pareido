@@ -1,16 +1,10 @@
 extends Control
 
 #TODO fix bottom button overlap
-#TODO fix image-image for button
-#TODO sort buttons according to languages
-#TODO autogenerate pics from images
-#TODO create and read from folders in executable
-#TODO automatic language/flag according to csv
 #TODO automate adding languages to project?
+#TODO Darkmode?
 
-#TODO V1
-#TODO Startbbutton weiter runter CHECK
-#TODO Zeitanzeige undurchsichtiger CHECK
+#TODO V1 done
 
 
 func _ready():
@@ -18,12 +12,11 @@ func _ready():
 	
 	%VBoxContainerPics.delete_buttons()
 	%VBoxContainerPics.populate(Singleton.button_pictures, Singleton.varieties)
-	#%RoundsSpinBox.max_value = MAX_ROUNDS
-	#%RoundsHSlider.max_value = MAX_ROUNDS
-	#%VarietiesHSlider.max_value = MAX_VARIETIES
-	#%VarietiesSpinBox.max_value = MAX_VARIETIES
 	await get_tree().process_frame
 	exit_button_reset()
+	
+	for pic in Singleton.pics:
+		print(pic)
 
 
 func exit_button_reset() -> void:
@@ -32,7 +25,7 @@ func exit_button_reset() -> void:
 	else:
 		%ExitButton.global_position.x = 1072
 
-
+#TODO: depreciated?
 func _on_layout_button_pressed() -> void:
 	%VBoxContainerLeft.visible = not %VBoxContainerLeft.visible
 	%VBoxContainerRight.visible = not %VBoxContainerRight.visible
@@ -46,10 +39,10 @@ func _on_start_button_pressed() -> void:
 	%StartButton.visible = false
 	%LayoutButton.visible = false
 	%StartContainer.visible = false
-	%RoundsSpinBox.editable = false
-	%RoundsHSlider.editable = false
-	%VarietiesSpinBox.editable = false
-	%VarietiesHSlider.editable = false
+	#%RoundsSpinBox.editable = false
+	#%RoundsHSlider.editable = false
+	#%VarietiesSpinBox.editable = false
+	#%VarietiesHSlider.editable = false
 	Singleton.running = not Singleton.running
 	%VBoxContainerPics.delete_pics()
 	Singleton.missingVeg = %VBoxContainerPics.populate(Singleton.button_pictures, Singleton.varieties)
@@ -60,15 +53,17 @@ func _on_start_button_pressed() -> void:
 #	missingVeg = missingScene
 
 
-func on_button_press(pressedButton, number) -> void:
+func on_button_press(pressedButton: Button, number: int) -> void:
 	if Singleton.running:
 		if Singleton.missingVeg == number:
 			%CorrectTimer.start()
+			pressedButton.add_theme_color_override("icon_normal_color", Color(0, 1, 0))
 			pressedButton.add_theme_color_override("font_color", Color(0, 1, 0))
 			pressedButton.add_theme_color_override("font_focus_color", Color(0, 1, 0))
 			pressedButton.add_theme_color_override("font_disabled_color", Color(0, 1, 0))
 		else:
 			%DisabledTimer.start()
+			pressedButton.add_theme_color_override("icon_normal_color", Color(1, 0, 0))
 			pressedButton.add_theme_color_override("font_color", Color(1, 0, 0))
 			pressedButton.add_theme_color_override("font_focus_color", Color(1, 0, 0))
 			pressedButton.add_theme_color_override("font_disabled_color", Color(1, 0, 0))
@@ -93,7 +88,8 @@ func _on_correct_timer_timeout() -> void:
 		Singleton.missingVeg =  %VBoxContainerPics.populate(Singleton.button_pictures, Singleton.missingVeg)
 		%VBoxContainerPics.shake()
 		Singleton.cur_rounds += 1
-	for button in get_tree().get_nodes_in_group("buttons"):
+	for button :Button in get_tree().get_nodes_in_group("buttons"):
+		button.remove_theme_color_override("icon_normal_color")
 		button.remove_theme_color_override("font_color")
 		button.remove_theme_color_override("font_focus_color")
 		button.remove_theme_color_override("font_disabled_color")
@@ -104,6 +100,10 @@ func _switch_buttons():
 		button.disabled = !button.disabled
 
 
+func _on_exit_button_pressed() -> void:
+	Singleton.goto_scene(Singleton.SCENE_MENU)
+
+
 #func _on_flag_button_pressed() -> void:
 	#cur_language_nr += 1
 	#if cur_language_nr >= LANGUAGES.size():
@@ -111,10 +111,6 @@ func _switch_buttons():
 	#TranslationServer.set_locale(LANGUAGES[cur_language_nr])
 	#%FlagButton.icon = load("res://translations/%s" % tr("key_picture_path"))
 	#print(tr("key_picture_path"))
-
-
-func _on_exit_button_pressed() -> void:
-	Singleton.goto_scene(Singleton.SCENE_MENU)
 
 
 ##region OptionChanges

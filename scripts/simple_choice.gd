@@ -1,19 +1,19 @@
 extends Control
 
 func _on_animal_button_pressed() -> void:
-	Singleton.category = ["/animals","animals"]
+	Singleton.category = "animals"
 	_on_scene_change()
 
 func _on_office_button_pressed() -> void:
-	Singleton.category = ["/office","office"]
+	Singleton.category = "office"
 	_on_scene_change()
 
 func _on_vegie_button_pressed() -> void:
-	Singleton.category = ["/vegies","vegies"]
+	Singleton.category = "vegies"
 	_on_scene_change()
 
 func _on_vehicle_button_pressed() -> void:
-	Singleton.category = ["/vehicles","vehicles"]
+	Singleton.category = "vehicles"
 	_on_scene_change()
 
 

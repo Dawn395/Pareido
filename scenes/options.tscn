@@ -1,0 +1,181 @@
+[gd_scene load_steps=4 format=3 uid="uid://iloyho4cn0ja"]
+
+[ext_resource type="Script" uid="uid://cdt6pmge1gs5g" path="res://scripts/options.gd" id="1_yjkok"]
+[ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="2_2iy26"]
+[ext_resource type="PackedScene" uid="uid://b6kws83dsh6js" path="res://scenes/option_picture_button.tscn" id="3_2iy26"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yjkok")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+scale = Vector2(115, 65)
+texture = ExtResource("2_2iy26")
+centered = false
+
+[node name="Tree" type="Tree" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 430.0
+offset_bottom = 530.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 550.0
+offset_right = 1130.0
+offset_bottom = 620.0
+alignment = 1
+
+[node name="ExitButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 6
+focus_mode = 0
+text = "Abbruch"
+
+[node name="FlagButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 6
+focus_mode = 0
+text = "Flagge"
+
+[node name="OptionsButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 6
+focus_mode = 0
+text = "Optionen"
+
+[node name="AcceptButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 6
+focus_mode = 0
+text = "Annehmen
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 435.0
+offset_top = 30.0
+offset_right = 1115.0
+offset_bottom = 530.0
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PicGridContainer" type="GridContainer" parent="VBoxContainer/Panel/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="OptionPictureButton" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton2" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton3" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton4" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton5" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton6" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton7" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton8" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton9" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton10" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton11" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton12" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton13" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton14" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton15" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton16" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton17" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton18" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton19" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="OptionPictureButton20" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer" instance=ExtResource("3_2iy26")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="VarietiesHSlider" type="HSlider" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 2.0
+max_value = 20.0
+value = 8.0
+
+[node name="VarietiesLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "16 / 200 "
+horizontal_alignment = 2
+
+[connection signal="button_clicked" from="Tree" to="." method="_on_tree_button_clicked"]
+[connection signal="item_edited" from="Tree" to="." method="_on_tree_item_edited"]
+[connection signal="pressed" from="HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/FlagButton" to="." method="_on_flag_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VarietiesHSlider" to="." method="_on_varieties_h_slider_value_changed"]

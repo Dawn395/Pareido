@@ -106,6 +106,7 @@ text = "tr_start"
 
 [node name="StartContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 z_index = 100
 layout_mode = 1
 anchors_preset = 8
@@ -126,11 +127,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_75yoj")
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="StartContainer/VBoxContainerStart"]
+visible = false
 layout_mode = 2
 
 [node name="FlagButton" type="Button" parent="StartContainer/VBoxContainerStart/HBoxContainer"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(115, 0)
 layout_mode = 2
 focus_mode = 0

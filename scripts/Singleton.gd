@@ -1,10 +1,11 @@
 extends Node
 
-var first_start := true
+var starting_infobox := true
 var running := false
 var side_buttons := true # depreciated?
-var button_pictures := false # if the buttons should display pictures
 var alreadychanged := false
+
+var config: ConfigFile
 
 var info_mode := false # if the Cursor is in info_mode
 var options_unlocked := false # if options are clickable
@@ -20,17 +21,27 @@ var LANGUAGES
 
 var pics := [] #  category, path, translation
 
+var pics_new := [] # selected, path, translation
+var pic_folders := [] # path
+
+#var tree :Tree = null
+
 var category = null
 var true_random := false
 var cur_rounds := 1 #the current round
 var max_rounds := 3 #the selected maximum round setting
 var varieties := 8 #the selected maximum varieties setting
-const MAX_VARIETIES := 8 #hardcoded maximum varietes
-const MAX_ROUNDS := 5 #hardcoded maximum rounds
+const MAX_VARIETIES := 12 #hardcoded maximum varietes
+const MAX_ROUNDS := 10 #hardcoded maximum rounds
 
 const BUTTON := preload("res://scenes/button.tscn")
 const TOOLTIP := preload("res://scenes/tooltip.tscn")
 const PICTURE := preload("res://scenes/picture.tscn")
+
+const DIRNAMEPICS = "pictures"
+const DIRNAMEFONT = "font"
+const DIRNAMEINI = "config.ini"
+const DIRNAMEFOLDER = "user://pareido_data"
 
 #const SCENES := [
 		#[preload("res://scenes/vegies/basil.tscn"), "tr_basil",],
@@ -55,7 +66,7 @@ var scene_current = null
 const SCENE_MENU = "res://scenes/menu.tscn"
 const SCENE_PLAYING = "res://scenes/playing.tscn"
 const SIMPLE_CHOICE := "res://scenes/simple_choice.tscn"
-const SCENE_OPTIONS = null #TODO
+const SCENE_OPTIONS = "res://scenes/options.tscn"
 
 const TARGET :int = 200 # Target size for all sprites
 const POS_VAR :int = 50 # random position variance of sprites
@@ -65,7 +76,8 @@ var flip_pics := false
 func _ready() -> void:
 	randomize()
 	await get_tree().process_frame
-	const directory_script = preload("res://scripts/directorys.gd")
+	var directory_script = load("res://scripts/directorys.gd")
+	
 	var directory = directory_script.new()
 	
 	LANGUAGES = TranslationServer.get_loaded_locales()
@@ -82,11 +94,11 @@ func _ready() -> void:
 	var executeable_path :String = OS.get_executable_path().get_base_dir()
 	print_debug(executeable_path)
 	#match OS.get_name():
-		#"Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD" :
+		#"Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD", "Android", "iOS",  :
 	directory.create_dir(executeable_path)
 	directory.load_resources("user://pareido_data/pictures")
-		#"Android", "iOS", "Web":
-			#directory.load_resources("res://art/pics_imported/")
+	#"Android", "iOS", "Web":
+		#directory.load_resources("res://art/pics/")
 
 
 func create_tooltip(mouse_pos : Vector2, text :String) -> void:

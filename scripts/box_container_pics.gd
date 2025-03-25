@@ -2,6 +2,9 @@ extends VBoxContainer
 
 #signal sendMissingScene
 
+@onready var root = self.owner
+
+
 func delete_buttons() -> void:
 	for button in get_tree().get_nodes_in_group("buttons"):
 		button.queue_free()
@@ -20,13 +23,12 @@ func populate(button_pictures: bool, lastnumber: int = -1) -> int:
 	print(Singleton.category)
 	var i := 0
 	for pic in Singleton.pics:
-		if pic[0] in Singleton.category:
+		if pic[0] == Singleton.category:
 			sceneNr.append(i)
 		i += 1
 		if sceneNr.size() >= Singleton.varieties:
 			break
 	print(sceneNr)
-	#TODO ERROR
 	
 	delete_buttons()
 	for nr in sceneNr:
@@ -68,7 +70,7 @@ func gen_button(nr: int, text: String, texture: Texture) -> void:
 			button.icon = texture
 			button.icon_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	%ButtonGen.add_child(button)
-	button.connect("pressed", $"../../..".on_button_press.bind(button, nr))
+	button.connect("pressed", root.on_button_press.bind(button, nr))
 	button.set_meta("nr", nr)
 
 
@@ -86,14 +88,14 @@ func distribute_pics() -> void:
 		var box := create_box_container(Singleton.side_buttons)
 		bigbox.add_child(box)
 	
-	#TODO Better sorting
+	#TODO Better sorting, right now only for 8 Pics
 	var i := 0
 	while %PicGen.get_child_count() != 0:
 		var pic :Control = %PicGen.get_child(0)
 		%PicGen.remove_child(pic)
 		bigbox.get_child(i / 4).add_child(pic)
 		i += 1
-	$"../../..".exit_button_reset()
+	root.exit_button_reset()
 
 
 func create_box_container(vbox :bool) -> BoxContainer:
@@ -137,14 +139,14 @@ func distribute_buttons() -> void:
 		%ButtonGen.remove_child(button)
 		var nr = button.get_meta("nr")
 		var other_button = button.duplicate();
-		other_button.connect("pressed", $"../../..".on_button_press.bind(other_button, nr))
+		other_button.connect("pressed", root.on_button_press.bind(other_button, nr))
 		%VegieButtonGrid.add_child(button)
 		if count < (maximum / 2.0):
 			count += 1
 			%VBoxContainerLeft.add_child(other_button)
 		else:
 			%VBoxContainerRight.add_child(other_button)
-	$"../../..".exit_button_reset()
+	root.exit_button_reset()
 
 
 func shake() -> void:

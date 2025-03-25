@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6kws83dsh6js"]
+
+[ext_resource type="Script" uid="uid://g8b7spg3wyom" path="res://scripts/option_picture_button.gd" id="1_ppjs8"]
+
+[node name="OptionPictureButton" type="Button"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+toggle_mode = true
+script = ExtResource("1_ppjs8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="HBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/CenterContainer/Control"]
+unique_name_in_owner = true
+
+[node name="ButtonText" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "jhfghfhfghgfhfghgfhgfh"
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+mouse_filter = 2
+flat = true
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

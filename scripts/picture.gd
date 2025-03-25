@@ -6,7 +6,6 @@ func _ready() -> void:
 
 
 func init(texture :Texture) -> void:
-	#var texture = load(path)
 	%Sprite.texture = texture
 	scale()
 

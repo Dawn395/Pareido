@@ -7,7 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://bug3cdmx1bkgv" path="res://art/myfullLogoKofi.png" id="4_vs408"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
-bg_color = Color(0.099986, 0.099986, 0.099986, 1)
+bg_color = Color(0.891883, 1, 0.996003, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -43,9 +48,8 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "tr_bildlabel"
 
-[node name="Options" type="Button" parent="."]
+[node name="OptionsButton" type="Button" parent="."]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 offset_left = 1022.0
@@ -56,6 +60,19 @@ size_flags_horizontal = 6
 size_flags_vertical = 8
 focus_mode = 0
 text = "Opt"
+expand_icon = true
+
+[node name="PictureOptionButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(65, 50)
+layout_mode = 2
+offset_left = 851.0
+offset_top = 420.0
+offset_right = 1051.0
+offset_bottom = 470.0
+size_flags_horizontal = 6
+size_flags_vertical = 8
+focus_mode = 0
 expand_icon = true
 
 [node name="Label" type="Label" parent="."]
@@ -248,7 +265,7 @@ custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "tr_instructions"
 autowrap_mode = 3
 
@@ -305,7 +322,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Okay"
 
-[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PictureOptionButton" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
