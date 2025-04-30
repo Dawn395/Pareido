@@ -1,36 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://covnkucy1wi8j"]
+[gd_scene load_steps=7 format=3 uid="uid://covnkucy1wi8j"]
 
 [ext_resource type="Script" uid="uid://cpv5gw1dg8x06" path="res://scripts/game.gd" id="1_7ggc4"]
 [ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="2_5g4dd"]
+[ext_resource type="Texture2D" uid="uid://8ns70xk4ruk5" path="res://art/ui/cancel.png" id="2_ipk2s"]
 [ext_resource type="Script" uid="uid://x23d3l3pxdv1" path="res://scripts/box_container_pics.gd" id="4_e2ryr"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qf3vh"]
-bg_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gu5g"]
-bg_color = Color(99.46, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkyrf"]
-bg_color = Color(100, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bbr3"]
-bg_color = Color(100, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75yoj"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -65,12 +38,9 @@ offset_bottom = 80.0
 grow_horizontal = 0
 tooltip_text = "Beenden"
 focus_mode = 0
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxFlat_qf3vh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7gu5g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rkyrf")
-theme_override_styles/normal = SubResource("StyleBoxFlat_7bbr3")
-text = "X"
+icon = ExtResource("2_ipk2s")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100

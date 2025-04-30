@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi5bn1o05rth"]
+[gd_scene load_steps=9 format=3 uid="uid://bi5bn1o05rth"]
 
 [ext_resource type="Script" uid="uid://cagyfwjb1jokp" path="res://scripts/main_menu.gd" id="1_12vmo"]
 [ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="1_kx4k4"]
 [ext_resource type="Texture2D" uid="uid://1p3lqijc6vey" path="res://art/kofi_klein.png" id="3_3jqqq"]
+[ext_resource type="Texture2D" uid="uid://8ns70xk4ruk5" path="res://art/ui/cancel.png" id="3_g3eks"]
 [ext_resource type="Texture2D" uid="uid://d05anl1bjguxk" path="res://art/Werkraum Himberg Logo.jpg" id="3_k3p0x"]
+[ext_resource type="Texture2D" uid="uid://dnm4iiomorba7" path="res://art/ui/options.png" id="3_v86rl"]
 [ext_resource type="Texture2D" uid="uid://bug3cdmx1bkgv" path="res://art/myfullLogoKofi.png" id="4_vs408"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
@@ -59,7 +61,8 @@ offset_bottom = 130.0
 size_flags_horizontal = 6
 size_flags_vertical = 8
 focus_mode = 0
-text = "Opt"
+icon = ExtResource("3_v86rl")
+icon_alignment = 1
 expand_icon = true
 
 [node name="PictureOptionButton" type="Button" parent="."]
@@ -133,7 +136,9 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 focus_mode = 0
-text = "X"
+icon = ExtResource("3_g3eks")
+icon_alignment = 1
+expand_icon = true
 
 [node name="DonateButton" type="Button" parent="."]
 unique_name_in_owner = true

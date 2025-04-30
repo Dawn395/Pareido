@@ -15,7 +15,7 @@ func delete_pics() -> void:
 		pic.queue_free()
 
 
-func populate(button_pictures: bool, lastnumber: int = -1) -> int:
+func populate(lastnumber: int = -1) -> int:
 	var sceneNr = []
 	var missingVeg := -1
 	
@@ -59,19 +59,22 @@ func populate(button_pictures: bool, lastnumber: int = -1) -> int:
 
 func gen_button(nr: int, text: String, texture: Texture) -> void:
 	var button: Button = Singleton.BUTTON.instantiate()
+	button.set_meta("nr", nr)
+	button.set_meta("pic", texture)
+	button.set_meta("text", text)
 	match Singleton.pic_button_status:
 		0:
-			button.text = text
+			button.text = button.get_meta("text")
 		1:
-			button.icon = texture
+			button.icon = button.get_meta("pic")
 			button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		2:
-			button.text = text
-			button.icon = texture
+			button.text = button.get_meta("text")
+			button.icon = button.get_meta("pic")
 			button.icon_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	%ButtonGen.add_child(button)
 	button.connect("pressed", root.on_button_press.bind(button, nr))
-	button.set_meta("nr", nr)
+
 
 
 func distribute_pics() -> void:

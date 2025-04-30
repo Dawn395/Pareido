@@ -13,15 +13,17 @@ var missingVeg := -1
 var pic_button_status :int = 0	# 0 = only text
 								# 1 = only picture
 								# 2 = picture & text
-
+var button_pictures :bool = false
 
 var current_tooltip
 var cur_language_nr : int
 var LANGUAGES
 
-var pics := [] #  category, path, translation
+var pics := [] #  category, texture, translation
 
-var pics_new := [] # selected, path, translation
+var pics_new := [] # selected, texturepath, translation
+
+
 var pic_folders := [] # path
 
 #var tree :Tree = null
@@ -35,6 +37,7 @@ const MAX_VARIETIES := 12 #hardcoded maximum varietes
 const MAX_ROUNDS := 10 #hardcoded maximum rounds
 
 const BUTTON := preload("res://scenes/button.tscn")
+const OPTION_PICTURE_BUTTON := preload("res://scenes/option_picture_button.tscn")
 const TOOLTIP := preload("res://scenes/tooltip.tscn")
 const PICTURE := preload("res://scenes/picture.tscn")
 
@@ -72,13 +75,14 @@ const TARGET :int = 200 # Target size for all sprites
 const POS_VAR :int = 50 # random position variance of sprites
 const MAX_ROTATION :float = deg_to_rad(45) # max degree that sprites are rotated
 var flip_pics := false
+var directory
 
 func _ready() -> void:
 	randomize()
 	await get_tree().process_frame
 	var directory_script = load("res://scripts/directorys.gd")
 	
-	var directory = directory_script.new()
+	directory = directory_script.new()
 	
 	LANGUAGES = TranslationServer.get_loaded_locales()
 	#if OS.get_locale_language() in LANGUAGES:
@@ -96,9 +100,15 @@ func _ready() -> void:
 	#match OS.get_name():
 		#"Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD", "Android", "iOS",  :
 	directory.create_dir(executeable_path)
-	directory.load_resources("user://pareido_data/pictures")
+	load_resources()
 	#"Android", "iOS", "Web":
 		#directory.load_resources("res://art/pics/")
+
+func load_resources():
+	pic_folders.clear()
+	pics.clear()
+	pics_new.clear()
+	directory.load_resources("user://pareido_data/pictures")
 
 
 func create_tooltip(mouse_pos : Vector2, text :String) -> void:

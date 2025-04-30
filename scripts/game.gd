@@ -11,8 +11,7 @@ func _ready():
 	await get_tree().process_frame
 	
 	%VBoxContainerPics.delete_buttons()
-	%VBoxContainerPics.populate(Singleton.button_pictures, Singleton.varieties)
-	await get_tree().process_frame
+	%VBoxContainerPics.populate(Singleton.varieties)
 	exit_button_reset()
 	
 	for pic in Singleton.pics:
@@ -20,10 +19,12 @@ func _ready():
 
 
 func exit_button_reset() -> void:
+	await get_tree().process_frame
 	if %VBoxContainerRight.visible:
-		%ExitButton.global_position.x = %VBoxContainerRight.global_position.x - %ExitButton.size.x - 30
+		%ExitButton.global_position.x = 1120 - %VBoxContainerRight.size.x - %ExitButton.size.x
 	else:
-		%ExitButton.global_position.x = 1072
+		%ExitButton.global_position.x = 1072 # TODO Check if still correct
+
 
 #TODO: depreciated?
 func _on_layout_button_pressed() -> void:
@@ -45,7 +46,7 @@ func _on_start_button_pressed() -> void:
 	#%VarietiesHSlider.editable = false
 	Singleton.running = not Singleton.running
 	%VBoxContainerPics.delete_pics()
-	Singleton.missingVeg = %VBoxContainerPics.populate(Singleton.button_pictures, Singleton.varieties)
+	Singleton.missingVeg = %VBoxContainerPics.populate(Singleton.varieties)
 	%VBoxContainerPics.shake()
 	%GuessTimer.stop()
 	%GuessTimer.paused = false
@@ -63,11 +64,13 @@ func on_button_press(pressedButton: Button, number: int) -> void:
 			pressedButton.add_theme_color_override("font_disabled_color", Color(0, 1, 0))
 		else:
 			%DisabledTimer.start()
-			pressedButton.add_theme_color_override("icon_normal_color", Color(1, 0, 0))
 			pressedButton.add_theme_color_override("font_color", Color(1, 0, 0))
 			pressedButton.add_theme_color_override("font_focus_color", Color(1, 0, 0))
 			pressedButton.add_theme_color_override("font_disabled_color", Color(1, 0, 0))
-		_switch_buttons()	
+			pressedButton.icon = pressedButton.get_meta("pic")
+			pressedButton.text = pressedButton.get_meta("text")
+		_switch_buttons()
+		exit_button_reset()
 
 
 func _on_disabledtimer_timeout() -> void:
@@ -85,7 +88,7 @@ func _on_correct_timer_timeout() -> void:
 		Singleton.running = not Singleton.running
 	else:
 		%VBoxContainerPics.delete_pics()
-		Singleton.missingVeg =  %VBoxContainerPics.populate(Singleton.button_pictures, Singleton.missingVeg)
+		Singleton.missingVeg =  %VBoxContainerPics.populate(Singleton.missingVeg)
 		%VBoxContainerPics.shake()
 		Singleton.cur_rounds += 1
 	for button :Button in get_tree().get_nodes_in_group("buttons"):
@@ -93,6 +96,7 @@ func _on_correct_timer_timeout() -> void:
 		button.remove_theme_color_override("font_color")
 		button.remove_theme_color_override("font_focus_color")
 		button.remove_theme_color_override("font_disabled_color")
+	exit_button_reset()
 
 
 func _switch_buttons():
@@ -135,7 +139,7 @@ func _on_exit_button_pressed() -> void:
 	#varieties = value
 	#%VBoxContainerPics.delete_buttons()
 	#%VBoxContainerPics.delete_pics()
-	#%VBoxContainerPics.populate(button_pictures, varieties)
+	#%VBoxContainerPics.populate(varieties)
 #
 #
 #func _on_varieties_h_slider_value_changed(value: float) -> void:
@@ -145,12 +149,12 @@ func _on_exit_button_pressed() -> void:
 	#varieties = value
 	#%VBoxContainerPics.delete_buttons()
 	#%VBoxContainerPics.delete_pics()
-	#%VBoxContainerPics.populate(button_pictures, varieties)
+	#%VBoxContainerPics.populate(varieties)
 ##endregion
 #
 ##func _on_vegie_pic_send_missing_scene(missingScene) -> void:
 #
 #func _on_symbols_button_pressed() -> void:
 	#button_pictures = !button_pictures
-	#%VBoxContainerPics.populate(button_pictures, varieties)
+	#%VBoxContainerPics.populate(varieties)
 	#

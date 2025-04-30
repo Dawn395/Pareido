@@ -1,35 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://uh2bgk2dmj0n"]
+[gd_scene load_steps=4 format=3 uid="uid://uh2bgk2dmj0n"]
 
 [ext_resource type="Script" uid="uid://b65oukgby0tvb" path="res://scripts/simple_choice.gd" id="1_n16kn"]
 [ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="1_oe1ob"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jlyv"]
-bg_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ftb"]
-bg_color = Color(99.46, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy7bp"]
-bg_color = Color(100, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sh4a2"]
-bg_color = Color(100, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[ext_resource type="Texture2D" uid="uid://8ns70xk4ruk5" path="res://art/ui/cancel.png" id="3_netu1"]
 
 [node name="SimpleChoice" type="Control"]
 layout_mode = 3
@@ -110,12 +83,9 @@ offset_bottom = 90.0
 grow_horizontal = 0
 tooltip_text = "Beenden"
 focus_mode = 0
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxFlat_5jlyv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6ftb")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_gy7bp")
-theme_override_styles/normal = SubResource("StyleBoxFlat_sh4a2")
-text = "X"
+icon = ExtResource("3_netu1")
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="pressed" from="MarginContainer/GridContainer/VegieButton" to="." method="_on_vegie_button_pressed"]
 [connection signal="pressed" from="MarginContainer/GridContainer/OfficeButton" to="." method="_on_office_button_pressed"]
