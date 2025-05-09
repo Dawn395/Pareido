@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=4 uid="uid://cemlxn27frmx0"]
+[gd_resource type="Theme" load_steps=14 format=4 uid="uid://cemlxn27frmx0"]
 
 [ext_resource type="FontFile" uid="uid://c53b40dtd8w0v" path="res://art/MulledWineSeason-Medium.otf" id="1_4nlls"]
 
@@ -859,6 +859,17 @@ content_margin_bottom = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
+bg_color = Color(0.310504, 0.651926, 0.757746, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
+border_width_right = 49
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_right = 55.0
+
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -918,3 +929,5 @@ RichTextLabel/fonts/normal_font = ExtResource("1_4nlls")
 RichTextLabel/styles/focus = SubResource("StyleBoxFlat_1rmny")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_mihib")
 ScrollContainer/styles/panel = SubResource("StyleBoxFlat_e1x85")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_cjfk0")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_vj6dk")

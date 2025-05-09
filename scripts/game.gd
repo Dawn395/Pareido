@@ -1,11 +1,7 @@
 extends Control
 
-#TODO fix bottom button overlap
 #TODO automate adding languages to project?
 #TODO Darkmode?
-
-#TODO V1 done
-
 
 func _ready():
 	await get_tree().process_frame

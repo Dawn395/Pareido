@@ -4,16 +4,13 @@ extends VBoxContainer
 
 @onready var root = self.owner
 
-
 func delete_buttons() -> void:
 	for button in get_tree().get_nodes_in_group("buttons"):
 		button.queue_free()
 
-
 func delete_pics() -> void:
 	for pic in get_tree().get_nodes_in_group("pic"):
 		pic.queue_free()
-
 
 func populate(lastnumber: int = -1) -> int:
 	var sceneNr = []

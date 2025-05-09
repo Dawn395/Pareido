@@ -105,9 +105,4 @@ func _on_instructions_close_button_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
-	#var item :TreeItem = Singleton.tree.get_root()
-	#while item:
-		#print(item)
-		#print(item.get_text(0))
-		#item = item.get_next_in_tree()
 	Singleton.goto_scene(Singleton.SCENE_OPTIONS)

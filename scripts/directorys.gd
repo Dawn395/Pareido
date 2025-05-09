@@ -73,10 +73,10 @@ func load_pics(basepath: String, path: String) -> void:
 				if tr(filename) == filename:
 					filename = file.get_basename()
 				Singleton.pics.push_back([path.trim_prefix(basepath).right(-1), texture, filename])
-				print("path:" + path.trim_prefix(basepath).right(-1).path_join(file))
+				#print("path:" + path.trim_prefix(basepath).right(-1).path_join(file))
 				var activepic = Singleton.config.get_value("profile1",path.trim_prefix(basepath).right(-1).path_join(file), false)
-				Singleton.pics_new.push_back([activepic, path.path_join(file), filename])
-				print(path.path_join(file))
+				Singleton.pics_new.push_back([activepic, path.path_join(file), texture, filename])
+				#print(path.path_join(file))
 
 
 func load_font(path: String) -> void:

@@ -20,9 +20,7 @@ var cur_language_nr : int
 var LANGUAGES
 
 var pics := [] #  category, texture, translation
-
-var pics_new := [] # selected, texturepath, translation
-
+var pics_new := [] # 0selected, 1texturepath, 2texture, 3translation
 
 var pic_folders := [] # path
 
