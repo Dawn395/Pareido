@@ -23,7 +23,7 @@ func init(texturepath: String, texture: Texture, text: String,  checked: bool, i
 
 func _on_toggled(toggled_on: bool) -> void:
 	%CheckBox.button_pressed = toggled_on
-	for pic in Singleton.pics_new:
+	for pic in Singleton.pics:
 		#print("fullpath: " + $".".get_meta("fullpath"))
 		#print("path: " + $".".get_meta("path"))
 		if pic[1] == $".".get_meta("fullpath"):

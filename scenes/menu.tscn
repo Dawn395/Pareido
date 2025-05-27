@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi5bn1o05rth"]
+[gd_scene load_steps=10 format=3 uid="uid://bi5bn1o05rth"]
 
 [ext_resource type="Script" uid="uid://cagyfwjb1jokp" path="res://scripts/main_menu.gd" id="1_12vmo"]
 [ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="1_kx4k4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8ns70xk4ruk5" path="res://art/ui/cancel.png" id="3_g3eks"]
 [ext_resource type="Texture2D" uid="uid://d05anl1bjguxk" path="res://art/Werkraum Himberg Logo.jpg" id="3_k3p0x"]
 [ext_resource type="Texture2D" uid="uid://dnm4iiomorba7" path="res://art/ui/options.png" id="3_v86rl"]
+[ext_resource type="Texture2D" uid="uid://6b4h6chrg1xf" path="res://art/Pareido_Logo.png" id="4_13sgg"]
 [ext_resource type="Texture2D" uid="uid://bug3cdmx1bkgv" path="res://art/myfullLogoKofi.png" id="4_vs408"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
@@ -34,6 +35,25 @@ z_index = -100
 scale = Vector2(115, 65)
 texture = ExtResource("1_kx4k4")
 centered = false
+
+[node name="LogoTextureRect" type="TextureRect" parent="."]
+z_index = -50
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.75
+offset_top = -274.0
+offset_right = 355.75
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_13sgg")
+expand_mode = 3
 
 [node name="BildLabel" type="Label" parent="."]
 visible = false
@@ -69,28 +89,14 @@ expand_icon = true
 unique_name_in_owner = true
 custom_minimum_size = Vector2(65, 50)
 layout_mode = 2
-offset_left = 851.0
-offset_top = 420.0
-offset_right = 1051.0
-offset_bottom = 470.0
+offset_left = 800.0
+offset_top = 400.0
+offset_right = 1050.0
+offset_bottom = 450.0
 size_flags_horizontal = 6
 size_flags_vertical = 8
 focus_mode = 0
 expand_icon = true
-
-[node name="Label" type="Label" parent="."]
-custom_minimum_size = Vector2(400, 400)
-layout_mode = 2
-offset_left = 380.0
-offset_top = 9.0
-offset_right = 780.0
-offset_bottom = 409.0
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Pareido
-"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="StartButton" type="Button" parent="."]
 unique_name_in_owner = true
@@ -244,6 +250,7 @@ text = "Okay"
 
 [node name="InstructionsMarginContainer" type="MarginContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(600, 400)
 layout_mode = 1
 anchors_preset = 8

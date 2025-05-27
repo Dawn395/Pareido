@@ -6,10 +6,10 @@ uid="uid://gcoigphlsdwa"
 
 [deps]
 
-files=["res://translations/translation.en.translation", "res://translations/translation.de.translation", "res://translations/translation.de_AT.translation"]
+files=["res://translations/translation.en.translation", "res://translations/translation.de.translation"]
 
 source_file="res://translations/translation.csv"
-dest_files=["res://translations/translation.en.translation", "res://translations/translation.de.translation", "res://translations/translation.de_AT.translation"]
+dest_files=["res://translations/translation.en.translation", "res://translations/translation.de.translation"]
 
 [params]
 

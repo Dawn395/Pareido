@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://covnkucy1wi8j"]
 
-[ext_resource type="Script" uid="uid://cpv5gw1dg8x06" path="res://scripts/game.gd" id="1_7ggc4"]
-[ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="2_5g4dd"]
-[ext_resource type="Texture2D" uid="uid://8ns70xk4ruk5" path="res://art/ui/cancel.png" id="2_ipk2s"]
-[ext_resource type="Script" uid="uid://x23d3l3pxdv1" path="res://scripts/box_container_pics.gd" id="4_e2ryr"]
+[ext_resource type="Script" uid="uid://cpv5gw1dg8x06" path="res://scripts/game.gd" id="1_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://8ns70xk4ruk5" path="res://art/ui/cancel.png" id="2_iywne"]
+[ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="3_p57ef"]
+[ext_resource type="Script" uid="uid://x23d3l3pxdv1" path="res://scripts/box_container_pics.gd" id="4_u5sy4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75yoj"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("1_7ggc4")
+script = ExtResource("1_lbhrr")
 
 [node name="ExitButton" type="Button" parent="."]
 unique_name_in_owner = true
@@ -38,14 +38,14 @@ offset_bottom = 80.0
 grow_horizontal = 0
 tooltip_text = "Beenden"
 focus_mode = 0
-icon = ExtResource("2_ipk2s")
+icon = ExtResource("2_iywne")
 icon_alignment = 1
 expand_icon = true
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
 scale = Vector2(115, 65)
-texture = ExtResource("2_5g4dd")
+texture = ExtResource("3_p57ef")
 centered = false
 
 [node name="DisabledTimer" type="Timer" parent="."]
@@ -67,9 +67,9 @@ z_index = 1000
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 offset_left = 451.0
-offset_top = 550.0
+offset_top = 500.0
 offset_right = 701.0
-offset_bottom = 630.0
+offset_bottom = 580.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 50
 text = "tr_start"
@@ -245,16 +245,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 alignment = 1
-script = ExtResource("4_e2ryr")
+script = ExtResource("4_u5sy4")
 
 [node name="VegieButtonGrid" type="GridContainer" parent="NinePatchRect/HBoxContainerBig/VBoxContainerPics"]
 unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_vertical = 8
-columns = 4
-
-[node name="VegieButtonGrid" type="GridContainer" parent="NinePatchRect/HBoxContainerBig/VBoxContainerPics/VegieButtonGrid"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 8

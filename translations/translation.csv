@@ -1,59 +1,313 @@
-IETF language tag,en,de,de-AT
-,,,
-tr_picture_path,flags/gb.svg,flags/de.svg,flags/at.svg
-,,,
-tr_layout,change layout,Ausrichtung ändern,Ausrichtung ändern
-tr_rounds,# rounds,# Runden,# Runden
-tr_varieties,# varieties,# Sorten,# Sorten
-tr_start,START,START,START
-tr_credits,Credits,Mitwirkende,Mitwirkende
-tr_info,Info,Info,Info
-tr_donate,Donate,Spenden,Spenden
-tr_options,Options,Optionen,Optionen
-tr_instructions,,"Dieses Spiel zeigt dir verschiedene Bilder. Nachdem du auf Start gedrückt hast wird eines davon weggenommen. Klicke auf den Button, der dem entferntem Bild entspricht. Nach 3 Runden wird dir deine Zeit angezeigt.","Dieses Spiel zeigt dir verschiedene Bilder. Nachdem du auf Start gedrückt hast wird eines davon weggenommen. Klicke auf den Button, der dem entferntem Bild entspricht."
-tr_kofi," If you like what we are doing, you can support us by clicking the above link ↑","Wenn dir gefällt was wir machen, unterstütze uns indem du auf den Link oben klickst ↑","Wenn dir gefällt was wir machen, unterstütze uns indem du auf den Link oben klickst ↑"
-tr_credits,Credits,Mitwirkende,Mitwirkende
-tr_bildlabel,picturedisplay:,Bildanzeige:,
-,,,
-tr_cat,Cat,Katze,Katze
-tr_dog,Dog,Hund,Hund
-tr_frog,Frog,Frosch,Frosch
-tr_monkey,Monkey,Affe,Affe
-tr_pigeon,Pigeon,Taube,Taube
-tr_platypus,Platypus,Schnabeltier,Schnabeltier
-tr_seal,Seal,Seehund,Seehund
-tr_snake,Snake,Schlange,Schlange
-,,,
-tr_calculator,Calculator,Taschenrechner,Taschenrechner
-tr_folder,Folder,Ordner,Ordner
-tr_mouse,Mouse,Maus,Maus
-tr_paperclip,Paperclip,Büroklammer,Büroklammer
-tr_pen,Pen,Stift,Stift
-tr_screen,Screen,Bildschirm,Bildschirm
-tr_stapler,Stapler,Tacker,Tacker
-tr_usbstick,USB-Stick,USB-Speicher,USB-Speicher
-,,,
-tr_basil,Basil,Basilikum,Basilikum
-tr_broccoli,Broccoli,Brokkoli,Brokkoli
-tr_carrot,Carrot,Karotte,Karotte
-tr_chanterelle,Chanterelle,Pfifferling,Eierschwammerl
-tr_cucumber,Cucumber,Gurke,Gurke
-tr_eggplant,Eggplant,Aubergine,Melanzani
-tr_garlic,Garlic,Knoblauch,Knoblauch
-tr_leek,Leek,Lauch,Lauch
-tr_paprika,Paprika,Paprika,Paprika
-tr_potato,Potato,Kartoffel,Erdäpfel
-tr_pumpkin,Pumpkin,Kürbis,Kürbis
-tr_salad,Salad,Salat,Salat
-tr_scallion,Scallion,Jungzwiebel,Jungzwiebel
-tr_tomato,Tomato,Tomate,Paradeiser
-tr_zucchini,Zucchini,Zucchini,Zucchini
-,,,
-tr_airplane,Airplane,Flugzeug,Flugzeug
-tr_bicycle,Bicycle,Fahrrad,Fahrrad
-tr_bus,Bus,Bus,Bus
-tr_car,Car,Auto,Auto
-tr_eroller,E-Roller,E-Roller,E-Roller
-tr_ship,Ship,Schiff,Schiff
-tr_train,Train,Zug,Zug
-tr_uboat,U-Boat,U-Boot,U-Boot
+IETF language tag,en,de
+tr_language,english,deutsch
+,,
+tr_layout,change layout,Ausrichtung ändern
+tr_rounds,# rounds,# Runden
+tr_varieties,# varieties,# Sorten
+tr_start,START,START
+tr_credits,Credits,Mitwirkende
+tr_info,Info,Info
+tr_donate,Donate,Spenden
+tr_options,Options,Optionen
+tr_instructions,,"Dieses Spiel zeigt dir verschiedene Bilder. Nachdem du auf Start gedrückt hast wird eines davon weggenommen. Klicke auf den Button, der dem entferntem Bild entspricht. Nach 3 Runden wird dir deine Zeit angezeigt."
+tr_kofi," If you like what we are doing, you can support us by clicking the above link ↑","Wenn dir gefällt was wir machen, unterstütze uns indem du auf den Link oben klickst ↑"
+tr_credits,Credits,Mitwirkende
+tr_bildlabel,picturedisplay:,Bildanzeige:
+tr_language_selection,  Language: ,  Sprache:
+tr_text,Text,Text
+tr_pic_and_text,Picture and Text,Bild und Text
+tr_reset_startbox,reset Start Infobox,Zurücksetzen der Start Infobox
+tr_true_random, true random (the same pic can be missing 2x in a row), Wahrer Zufall (dasselbe Bild kann 2x hintereinander fehlen)
+tr_randomize_pics, pics will be newly randomized betweeen rounds, Bilder werden zwischen den Runden neu ausgewählt
+tr_shake_pics, pics will be shaken around, Bilder werden herumgeschüttelt
+,,
+tr_cat,Cat,Katze
+tr_dog,Dog,Hund
+tr_frog,Frog,Frosch
+tr_monkey,Monkey,Affe
+tr_pigeon,Pigeon,Taube
+tr_platypus,Platypus,Schnabeltier
+tr_seal,Seal,Seehund
+tr_snake,Snake,Schlange
+,,
+tr_calculator,Calculator,Taschenrechner
+tr_folder,Folder,Ordner
+tr_mouse,Mouse,Maus
+tr_paperclip,Paperclip,Büroklammer
+tr_pen,Pen,Stift
+tr_screen,Screen,Bildschirm
+tr_stapler,Stapler,Tacker
+tr_usbstick,USB-Stick,USB-Speicher
+,,
+tr_basil,Basil,Basilikum
+tr_broccoli,Broccoli,Brokkoli
+tr_carrot,Carrot,Karotte
+tr_chanterelle,Chanterelle,Pfifferling
+tr_cucumber,Cucumber,Gurke
+tr_eggplant,Eggplant,Aubergine
+tr_garlic,Garlic,Knoblauch
+tr_leek,Leek,Lauch
+tr_paprika,Paprika,Paprika
+tr_potato,Potato,Kartoffel
+tr_pumpkin,Pumpkin,Kürbis
+tr_salad,Salad,Salat
+tr_scallion,Scallion,Jungzwiebel
+tr_tomato,Tomato,Tomate
+tr_zucchini,Zucchini,Zucchini
+,,
+tr_airplane,Airplane,Flugzeug
+tr_bicycle,Bicycle,Fahrrad
+tr_bus,Bus,Bus
+tr_car,Car,Auto
+tr_eroller,E-Roller,E-Roller
+tr_ship,Ship,Schiff
+tr_train,Train,Zug
+tr_uboat,U-Boat,U-Boot
+,,
+tr_ad,Andorra,Andorra
+tr_ae,United Arab Emirates,Vereinigte Arabische Emirate
+tr_af,Afghanistan,Afghanistan
+tr_ag,Antigua and Barbuda,Antigua und Barbuda
+tr_ai,Anguilla,Anguilla
+tr_al,Albania,Albanien
+tr_am,Armenia,Armenien
+tr_ao,Angola,Angola
+tr_aq,Antarctica,Antarktis
+tr_ar,Argentina,Argentinien
+tr_as,American Samoa,Amerikanisch-Samoa
+tr_at,Austria,Österreich
+tr_au,Australia,Australien
+tr_aw,Aruba,Aruba
+tr_ax,Aland Islands,Alandinseln
+tr_az,Azerbaijan,Aserbaidschan
+tr_ba,Bosnia and Herzegovina,Bosnien und Herzegowina
+tr_bb,Barbados,Barbados
+tr_bd,Bangladesh,Bangladesch
+tr_be,Belgium,Belgien
+tr_bf,Burkina Faso,Burkina Faso
+tr_bg,Bulgaria,Bulgarien
+tr_bh,Bahrain,Bahrain
+tr_bi,Burundi,Burundi
+tr_bj,Benin,Benin
+tr_bl,Saint Barthelemy,Saint-Barthelemy
+tr_bm,Bermuda,Bermuda
+tr_bn,Brunei Darussalam,Brunei Darussalam
+tr_bo,Bolivia,Bolivien
+tr_bq,"Bonaire, Sint Eustatius and Saba","Bonaire, Sint Eustatius und Saba"
+tr_br,Brazil,Brasilien
+tr_bs,Bahamas,Bahamas
+tr_bt,Bhutan,Bhutan
+tr_bv,Bouvet Island,Bouvetinsel
+tr_bw,Botswana,Botswana
+tr_by,Belarus,Weißrussland
+tr_bz,Belize,Belize
+tr_ca,Canada,Kanada
+tr_cc,Cocos (Keeling) Islands,Kokosinseln (Keelinginseln)
+tr_cd,Democratic Republic of the Congo,Demokratische Republik Kongo
+tr_cf,Central African Republic,Zentralafrikanische Republik
+tr_cg,Republic of the Congo,Republik Kongo
+tr_ch,Switzerland,Schweiz
+tr_ci,Cote d'Ivoire,Elfenbeinküste
+tr_ck,Cook Islands,Cookinseln
+tr_cl,Chile,Chile
+tr_cm,Cameroon,Kamerun
+tr_cn,China,China
+tr_co,Colombia,Kolumbien
+tr_cr,Costa Rica,Costa Rica
+tr_cu,Cuba,Kuba
+tr_cv,Cabo Verde,Kap Verde
+tr_cw,Curacao,Curacao
+tr_cx,Christmas Island,Weihnachtsinsel
+tr_cy,Cyprus,Zypern
+tr_cz,Czech Republic,Tschechien
+tr_de,Germany,Deutschland
+tr_dj,Djibouti,Dschibuti
+tr_dk,Denmark,Dänemark
+tr_dm,Dominica,Dominica
+tr_do,Dominican Republic,Dominikanische Republik
+tr_dz,Algeria,Algerien
+tr_ec,Ecuador,Ecuador
+tr_ee,Estonia,Estland
+tr_eg,Egypt,Ägypten
+tr_eh,Western Sahara,Westsahara
+tr_er,Eritrea,Eritrea
+tr_es,Spain,Spanien
+tr_et,Ethiopia,Äthiopien
+tr_fi,Finland,Finnland
+tr_fj,Fiji,Fidschi
+tr_fm,Micronesia,Mikronesien
+tr_fo,Faroe Islands,Färöer-Inseln
+tr_fr,France,Frankreich
+tr_ga,Gabon,Gabon
+tr_gb,United Kingdom,Vereinigtes Königreich
+tr_gd,Grenada,Grenada
+tr_ge,Georgia,Georgien
+tr_gf,French Guiana,Französisch-Guayana
+tr_gg,Guernsey,Guernsey
+tr_gh,Ghana,Ghana
+tr_gi,Gibraltar,Gibraltar
+tr_gl,Greenland,Grönland
+tr_gm,Gambia,Gambia
+tr_gn,Guinea,Guinea
+tr_gp,Guadeloupe,Guadeloupe
+tr_gq,Equatorial Guinea,Äquatorialguinea
+tr_gr,Greece,Griechenland
+tr_gt,Guatemala,Guatemala
+tr_gu,Guam,Guam
+tr_gw,Guinea-Bissau,Guinea-Bissau
+tr_gy,Guyana,Guyana
+tr_hk,Hong Kong,Hongkong
+tr_hm,Heard Island and McDonald Islands,Heard- und McDonaldinseln
+tr_hn,Honduras,Honduras
+tr_hr,Croatia,Kroatien
+tr_ht,Haiti,Haiti
+tr_hu,Hungary,Ungarn
+tr_id,Indonesia,Indonesien
+tr_ie,Ireland,Irland
+tr_il,Israel,Israel
+tr_im,Isle of Man,Insel Man
+tr_in,India,Indien
+tr_io,British Indian Ocean Territory,Britisches Territorium im Indischen Ozean
+tr_iq,Iraq,Irak
+tr_ir,Iran,Iran
+tr_is,Iceland,Island
+tr_it,Italy,Italien
+tr_je,Jersey,Jersey
+tr_jm,Jamaica,Jamaika
+tr_jo,Jordan,Jordanien
+tr_jp,Japan,Japan
+tr_ke,Kenya,Kenia
+tr_kg,Kyrgyzstan,Kirgisistan
+tr_kh,Cambodia,Kambodscha
+tr_ki,Kiribati,Kiribati
+tr_km,Comoros,Komoren
+tr_kn,Saint Kitts and Nevis,Saint Kitts und Nevis
+tr_kp,North Korea,Nordkorea
+tr_kr,South Korea,Südkorea
+tr_kw,Kuwait,Kuwait
+tr_ky,Cayman Islands,Kaimaninseln
+tr_kz,Kazakhstan,Kasachstan
+tr_la,Laos,Laos
+tr_lb,Lebanon,Libanon
+tr_lc,Saint Lucia,Saint Lucia
+tr_li,Liechtenstein,Liechtenstein
+tr_lk,Sri Lanka,Sri Lanka
+tr_lr,Liberia,Liberia
+tr_ls,Lesotho,Lesotho
+tr_lt,Lithuania,Litauen
+tr_lu,Luxembourg,Luxemburg
+tr_lv,Latvia,Lettland
+tr_ly,Libya,Libyen
+tr_ma,Morocco,Marokko
+tr_mc,Monaco,Monaco
+tr_md,Moldova,Moldawien
+tr_me,Montenegro,Montenegro
+tr_mf,Saint Martin,Saint Martin
+tr_mg,Madagascar,Madagaskar
+tr_mh,Marshall Islands,Marshallinseln
+tr_mk,North Macedonia,Nordmazedonien
+tr_ml,Mali,Mali
+tr_mm,Myanmar,Myanmar
+tr_mn,Mongolia,Mongolei
+tr_mo,Macau,Macau
+tr_mp,Northern Mariana Islands,Nördliche Marianen
+tr_mq,Martinique,Martinique
+tr_mr,Mauritania,Mauretanien
+tr_ms,Montserrat,Montserrat
+tr_mt,Malta,Malta
+tr_mu,Mauritius,Mauritius
+tr_mv,Maldives,Malediven
+tr_mw,Malawi,Malawi
+tr_mx,Mexico,Mexiko
+tr_my,Malaysia,Malaysia
+tr_mz,Mozambique,Mosambik
+tr_na,Namibia,Namibia
+tr_nc,New Caledonia,Neukaledonien
+tr_ne,Niger,Niger
+tr_nf,Norfolk Island,Norfolkinsel
+tr_ng,Nigeria,Nigeria
+tr_ni,Nicaragua,Nicaragua
+tr_nl,Netherlands,Niederlande
+tr_no,Norway,Norwegen
+tr_np,Nepal,Nepal
+tr_nr,Nauru,Nauru
+tr_nu,Niue,Niue
+tr_nz,New Zealand,Neuseeland
+tr_om,Oman,Oman
+tr_pa,Panama,Panama
+tr_pe,Peru,Peru
+tr_pf,French Polynesia,Französisch-Polynesien
+tr_pg,Papua New Guinea,Papua-Neuguinea
+tr_ph,Philippines,Philippinen
+tr_pk,Pakistan,Pakistan
+tr_pl,Poland,Polen
+tr_pm,Saint Pierre and Miquelon,Saint-Pierre und Miquelon
+tr_pn,Pitcairn Islands,Pitcairninseln
+tr_pr,Puerto Rico,Puerto Rico
+tr_ps,Palestine,Palästina
+tr_pt,Portugal,Portugal
+tr_pw,Palau,Palau
+tr_py,Paraguay,Paraguay
+tr_qa,Qatar,Katar
+tr_re,Reunion,Reunion
+tr_ro,Romania,Rumänien
+tr_rs,Serbia,Serbien
+tr_ru,Russia,Russland
+tr_rw,Rwanda,Ruanda
+tr_sa,Saudi Arabia,Saudi-Arabien
+tr_sb,Solomon Islands,Salomonen
+tr_sc,Seychelles,Seychellen
+tr_sd,Sudan,Sudan
+tr_se,Sweden,Schweden
+tr_sg,Singapore,Singapur
+tr_sh,Saint Helena,Saint Helena
+tr_si,Slovenia,Slowenien
+tr_sj,Svalbard and Jan Mayen,Svalbard und Jan Mayen
+tr_sk,Slovakia,Slowakei
+tr_sl,Sierra Leone,Sierra Leone
+tr_sm,San Marino,San Marino
+tr_sn,Senegal,Senegal
+tr_so,Somalia,Somalia
+tr_sr,Suriname,Surinam
+tr_ss,South Sudan,Südsudan
+tr_st,Sao Tome and Principe,Sao Tome und Principe
+tr_sv,El Salvador,El Salvador
+tr_sx,Sint Maarten,Sint Maarten
+tr_sy,Syria,Syrien
+tr_sz,Eswatini,Eswatini
+tr_tc,Turks and Caicos Islands,Turks- und Caicosinseln
+tr_td,Chad,Tschad
+tr_tf,French Southern and Antarctic Lands,Französische Süd- und Antarktisgebiete
+tr_tg,Togo,Togo
+tr_th,Thailand,Thailand
+tr_tj,Tajikistan,Tadschikistan
+tr_tk,Tokelau,Tokelau
+tr_tl,Timor-Leste,Timor-Leste
+tr_tm,Turkmenistan,Turkmenistan
+tr_tn,Tunisia,Tunesien
+tr_to,Tonga,Tonga
+tr_tr,Turkey,Türkei
+tr_tt,Trinidad and Tobago,Trinidad und Tobago
+tr_tv,Tuvalu,Tuvalu
+tr_tw,Taiwan,Taiwan
+tr_tz,Tanzania,Tansania
+tr_ua,Ukraine,Ukraine
+tr_ug,Uganda,Uganda
+tr_um,United States Minor Outlying Islands,Vereinigte Staaten von Amerika
+tr_us,United States,Vereinigte Staaten von Amerika (US)
+tr_uy,Uruguay,Uruguay
+tr_uz,Uzbekistan,Usbekistan
+tr_va,Vatican City,Vatikanstadt
+tr_vc,Saint Vincent and the Grenadines,Saint Vincent und die Grenadinen
+tr_ve,Venezuela,Venezuela
+tr_vg,British Virgin Islands,Britische Jungferninseln
+tr_vi,U.S. Virgin Islands,U.S. Virgin Islands
+tr_vn,Vietnam,Vietnam
+tr_vu,Vanuatu,Vanuatu
+tr_wf,Wallis and Futuna,Wallis und Futuna
+tr_ws,Samoa,Samoa
+tr_ye,Yemen,Jemen
+tr_yt,Mayotte,Mayotte
+tr_za,South Africa,Südafrika
+tr_zm,Zambia,Sambia
+tr_zw,Zimbabwe,Simbabwe

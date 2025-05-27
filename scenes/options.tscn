@@ -49,11 +49,12 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="LanguageButton" type="Button" parent="HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(150, 70)
 layout_mode = 2
 size_flags_horizontal = 6
 focus_mode = 0
-text = "Flagge"
+text = "Language"
 
 [node name="OptionsButton" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(150, 70)
@@ -116,12 +117,50 @@ size_flags_vertical = 3
 theme = ExtResource("6_o7i7e")
 columns = 2
 
-[node name="HelpLabel" type="Label" parent="VBoxContainer/Panel/ScrollContainer/PicGridContainer"]
-layout_mode = 2
-text = "<- Select a folder on the left side
-to choose which pictures you want to play with
-
+[node name="TopHelpLabel" type="Label" parent="VBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 631.0
+offset_bottom = 121.0
+text = "🠐 Select a folder on the left side
+to choose which pictures you want to play with.
 Doubleclick to select/deselect everything in a folder at once"
+
+[node name="CenterHelpLabel" type="Label" parent="VBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -45.0
+offset_right = 249.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "If you start this game as an Admin on PC, 
+there should be a folder where you can 
+change the pictures and include your own."
+
+[node name="BottomHelpLabel" type="Label" parent="VBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "this is how many different pictures are selected
+how many different pictures are used ↴   🠃 "
+horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -142,7 +181,7 @@ custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "16"
+text = "6"
 horizontal_alignment = 2
 
 [node name="SlashLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
@@ -156,7 +195,7 @@ horizontal_alignment = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "200"
+text = "20"
 horizontal_alignment = 2
 
 [node name="OptionsPanel" type="Panel" parent="."]
@@ -168,10 +207,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -418.5
-offset_top = -196.5
-offset_right = 418.5
-offset_bottom = 196.5
+offset_left = -400.0
+offset_top = -175.0
+offset_right = 400.0
+offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -187,12 +226,89 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RandomizeCheckBox" type="CheckBox" parent="OptionsPanel/HBoxContainer/VBoxContainer"]
+[node name="LanguageOptionButton" type="OptionButton" parent="OptionsPanel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="OptionsPanel/HBoxContainer/VBoxContainer/LanguageOptionButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -14.0
+offset_right = 40.0
+offset_bottom = 14.0
+grow_vertical = 2
+text = "tr_language_selection"
+
+[node name="RoundsButton" type="Button" parent="OptionsPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = " "
+alignment = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsPanel/HBoxContainer/VBoxContainer/RoundsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="OptionsPanel/HBoxContainer/VBoxContainer/RoundsButton/HBoxContainer"]
+layout_mode = 2
+text = "  Rounds   "
+
+[node name="RoundsHSlider" type="HSlider" parent="OptionsPanel/HBoxContainer/VBoxContainer/RoundsButton/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "randomize between rounds"
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 10.0
+value = 3.0
+rounded = true
+
+[node name="RoundsLabel" type="Label" parent="OptionsPanel/HBoxContainer/VBoxContainer/RoundsButton/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "  5  "
+
+[node name="PictureTypeButton" type="Button" parent="OptionsPanel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="TrueRandomCheckBox" type="CheckBox" parent="OptionsPanel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "tr_true_random"
+
+[node name="RandomizeCheckBox" type="CheckBox" parent="OptionsPanel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "tr_randomize_pics"
+
+[node name="ShakePicsCheckBox" type="CheckBox" parent="OptionsPanel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "tr_shake_pics"
+
+[node name="ResetPopupButton" type="Button" parent="OptionsPanel/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "tr_reset_startbox"
+icon_alignment = 1
+expand_icon = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="OptionsPanel/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -203,4 +319,10 @@ size_flags_horizontal = 3
 [connection signal="pressed" from="HBoxContainer/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VarietiesHSlider" to="." method="_on_varieties_h_slider_value_changed"]
+[connection signal="item_selected" from="OptionsPanel/HBoxContainer/VBoxContainer/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
+[connection signal="value_changed" from="OptionsPanel/HBoxContainer/VBoxContainer/RoundsButton/HBoxContainer/RoundsHSlider" to="." method="_on_rounds_h_slider_value_changed"]
+[connection signal="pressed" from="OptionsPanel/HBoxContainer/VBoxContainer/PictureTypeButton" to="." method="_on_picture_type_button_pressed"]
+[connection signal="toggled" from="OptionsPanel/HBoxContainer/VBoxContainer/TrueRandomCheckBox" to="." method="_on_true_random_check_box_toggled"]
 [connection signal="toggled" from="OptionsPanel/HBoxContainer/VBoxContainer/RandomizeCheckBox" to="." method="_on_randomize_check_box_toggled"]
+[connection signal="toggled" from="OptionsPanel/HBoxContainer/VBoxContainer/ShakePicsCheckBox" to="." method="_on_shake_check_box_toggled"]
+[connection signal="pressed" from="OptionsPanel/HBoxContainer/VBoxContainer/ResetPopupButton" to="." method="_on_reset_popup_button_pressed"]

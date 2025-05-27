@@ -1,17 +1,26 @@
 extends Control
 
-#TODO automate adding languages to project?
-#TODO Darkmode?
-
 func _ready():
 	await get_tree().process_frame
 	
+	if Singleton.category == null:
+		Singleton.true_random = Singleton.config.get_value("global", "true_random", false)
+		Singleton.randomize_between_rounds = Singleton.config.get_value("global", "randomize_between_rounds", false)
+		Singleton.varieties = Singleton.config.get_value("global", "varieties", 8)
+		Singleton.rounds = Singleton.config.get_value("global", "rounds", 3)
+		Singleton.pic_text_status = Singleton.config.get_value("global", "pic_text_status", 0)
+		Singleton.shake = Singleton.config.get_value("global", "shake_pics", true)
+	else:
+		Singleton.true_random = false
+		Singleton.randomize_between_rounds = false
+		Singleton.varieties = 8
+		Singleton.rounds = 3
+		Singleton.shake = true
+	Singleton.cur_rounds = 1
+	Singleton.running = false
 	%VBoxContainerPics.delete_buttons()
-	%VBoxContainerPics.populate(Singleton.varieties)
+	%VBoxContainerPics.populate()
 	exit_button_reset()
-	
-	for pic in Singleton.pics:
-		print(pic)
 
 
 func exit_button_reset() -> void:
@@ -22,7 +31,6 @@ func exit_button_reset() -> void:
 		%ExitButton.global_position.x = 1072 # TODO Check if still correct
 
 
-#TODO: depreciated?
 func _on_layout_button_pressed() -> void:
 	%VBoxContainerLeft.visible = not %VBoxContainerLeft.visible
 	%VBoxContainerRight.visible = not %VBoxContainerRight.visible
@@ -32,17 +40,15 @@ func _on_layout_button_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
+	Singleton.first_round = true
 	_switch_buttons()
 	%StartButton.visible = false
 	%LayoutButton.visible = false
 	%StartContainer.visible = false
-	#%RoundsSpinBox.editable = false
-	#%RoundsHSlider.editable = false
-	#%VarietiesSpinBox.editable = false
-	#%VarietiesHSlider.editable = false
+	Singleton.first_round = true
 	Singleton.running = not Singleton.running
 	%VBoxContainerPics.delete_pics()
-	Singleton.missingVeg = %VBoxContainerPics.populate(Singleton.varieties)
+	%VBoxContainerPics.populate()
 	%VBoxContainerPics.shake()
 	%GuessTimer.stop()
 	%GuessTimer.paused = false
@@ -50,9 +56,10 @@ func _on_start_button_pressed() -> void:
 #	missingVeg = missingScene
 
 
-func on_button_press(pressedButton: Button, number: int) -> void:
+func on_button_press(pressedButton: Button, path: String) -> void:
 	if Singleton.running:
-		if Singleton.missingVeg == number:
+		Singleton.first_round = false
+		if Singleton.missingPic == path:
 			%CorrectTimer.start()
 			pressedButton.add_theme_color_override("icon_normal_color", Color(0, 1, 0))
 			pressedButton.add_theme_color_override("font_color", Color(0, 1, 0))
@@ -74,17 +81,17 @@ func _on_disabledtimer_timeout() -> void:
 
 
 func _on_correct_timer_timeout() -> void:
-	if Singleton.cur_rounds == %RoundsSpinBox.value:
+	if Singleton.cur_rounds == Singleton.rounds:
 		Singleton.cur_rounds = 1
 		%GuessTimer.paused = true
 		%StartContainer.visible = true
 		%TimeLabel.visible = true
 		%StartButton.visible = true
-		%TimeLabel.text = "%.2f" % (%GuessTimer.wait_time - %GuessTimer.time_left - %RoundsSpinBox.value * %CorrectTimer.wait_time)
+		%TimeLabel.text = "%.2f" % (%GuessTimer.wait_time - %GuessTimer.time_left - Singleton.rounds * %CorrectTimer.wait_time)
 		Singleton.running = not Singleton.running
 	else:
 		%VBoxContainerPics.delete_pics()
-		Singleton.missingVeg =  %VBoxContainerPics.populate(Singleton.missingVeg)
+		%VBoxContainerPics.populate()
 		%VBoxContainerPics.shake()
 		Singleton.cur_rounds += 1
 	for button :Button in get_tree().get_nodes_in_group("buttons"):
@@ -102,55 +109,5 @@ func _switch_buttons():
 
 func _on_exit_button_pressed() -> void:
 	Singleton.goto_scene(Singleton.SCENE_MENU)
-
-
-#func _on_flag_button_pressed() -> void:
-	#cur_language_nr += 1
-	#if cur_language_nr >= LANGUAGES.size():
-		#cur_language_nr = 0;
-	#TranslationServer.set_locale(LANGUAGES[cur_language_nr])
-	#%FlagButton.icon = load("res://translations/%s" % tr("key_picture_path"))
-	#print(tr("key_picture_path"))
-
-
-##region OptionChanges
-#func _on_rounds_spin_box_value_changed(value: float) -> void:
-	#if not alreadychanged:
-		#%RoundsHSlider.value = value
-	#alreadychanged = not alreadychanged
-	#max_rounds = value
-#
-#
-#func _on_rounds_h_slider_value_changed(value: float) -> void:
-	#if not alreadychanged:
-		#%RoundsSpinBox.value = value
-	#alreadychanged = not alreadychanged
-	#max_rounds = value
-#
-#
-#func _on_varieties_spin_box_value_changed(value: float) -> void:
-	#if not alreadychanged:
-		#%VarietiesHSlider.value = value
-	#alreadychanged = not alreadychanged
-	#varieties = value
-	#%VBoxContainerPics.delete_buttons()
-	#%VBoxContainerPics.delete_pics()
-	#%VBoxContainerPics.populate(varieties)
-#
-#
-#func _on_varieties_h_slider_value_changed(value: float) -> void:
-	#if not alreadychanged:
-		#%VarietiesSpinBox.value = value
-	#alreadychanged = not alreadychanged
-	#varieties = value
-	#%VBoxContainerPics.delete_buttons()
-	#%VBoxContainerPics.delete_pics()
-	#%VBoxContainerPics.populate(varieties)
-##endregion
-#
-##func _on_vegie_pic_send_missing_scene(missingScene) -> void:
-#
-#func _on_symbols_button_pressed() -> void:
-	#button_pictures = !button_pictures
-	#%VBoxContainerPics.populate(varieties)
-	#
+	Singleton.first_round = true
+	Singleton.category = null
