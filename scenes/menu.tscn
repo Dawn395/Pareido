@@ -1,25 +1,80 @@
-[gd_scene load_steps=10 format=3 uid="uid://bi5bn1o05rth"]
+[gd_scene load_steps=18 format=3 uid="uid://bi5bn1o05rth"]
 
 [ext_resource type="Script" uid="uid://cagyfwjb1jokp" path="res://scripts/main_menu.gd" id="1_12vmo"]
-[ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="1_kx4k4"]
+[ext_resource type="Texture2D" uid="uid://cxcthwch4kpcg" path="res://art/Pareido Background.png" id="2_13sgg"]
 [ext_resource type="Texture2D" uid="uid://1p3lqijc6vey" path="res://art/kofi_klein.png" id="3_3jqqq"]
 [ext_resource type="Texture2D" uid="uid://8ns70xk4ruk5" path="res://art/ui/cancel.png" id="3_g3eks"]
 [ext_resource type="Texture2D" uid="uid://d05anl1bjguxk" path="res://art/Werkraum Himberg Logo.jpg" id="3_k3p0x"]
 [ext_resource type="Texture2D" uid="uid://dnm4iiomorba7" path="res://art/ui/options.png" id="3_v86rl"]
 [ext_resource type="Texture2D" uid="uid://6b4h6chrg1xf" path="res://art/Pareido_Logo.png" id="4_13sgg"]
 [ext_resource type="Texture2D" uid="uid://bug3cdmx1bkgv" path="res://art/myfullLogoKofi.png" id="4_vs408"]
+[ext_resource type="Theme" uid="uid://cmd4o7svexfeo" path="res://main_button_theme.tres" id="5_i6lef"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
-bg_color = Color(0.891883, 1, 0.996003, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cdou"]
+bg_color = Color(0.129412, 0.658824, 0.890196, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13sgg"]
+bg_color = Color(0.270588, 0.301961, 0.411765, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6lef"]
+bg_color = Color(0.921569, 0.768627, 0.0117647, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70i5f"]
+bg_color = Color(0.270588, 0.301961, 0.411765, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufwb2"]
+bg_color = Color(0.129412, 0.658824, 0.890196, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj5lg"]
+bg_color = Color(0.270588, 0.301961, 0.411765, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jp70"]
+bg_color = Color(0.129412, 0.658824, 0.890196, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i42df"]
+bg_color = Color(0.129412, 0.658824, 0.890196, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -32,9 +87,47 @@ script = ExtResource("1_12vmo")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
-scale = Vector2(115, 65)
-texture = ExtResource("1_kx4k4")
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("2_13sgg")
 centered = false
+
+[node name="LoadingPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 956.0
+offset_top = 436.0
+offset_right = 1127.0
+offset_bottom = 615.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadingPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LoadingTimeLabel" type="Label" parent="LoadingPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loadtime"
+
+[node name="LoadingTimeLabel1" type="Label" parent="LoadingPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loadtime"
+
+[node name="LoadingTimeLabel2" type="Label" parent="LoadingPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loadtime"
+
+[node name="LoadingTimeLabel3" type="Label" parent="LoadingPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loadtime"
+
+[node name="LoadingTimeLabel4" type="Label" parent="LoadingPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loadtime"
 
 [node name="LogoTextureRect" type="TextureRect" parent="."]
 z_index = -50
@@ -45,30 +138,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -355.75
-offset_top = -274.0
-offset_right = 355.75
-offset_bottom = 126.0
+offset_left = -327.0
+offset_top = -289.0
+offset_right = 384.5
+offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 texture = ExtResource("4_13sgg")
 expand_mode = 3
-
-[node name="BildLabel" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -177.0
-offset_top = 535.0
-offset_right = -64.0
-offset_bottom = 563.0
-grow_horizontal = 0
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "tr_bildlabel"
 
 [node name="OptionsButton" type="Button" parent="."]
 unique_name_in_owner = true
@@ -76,52 +154,76 @@ custom_minimum_size = Vector2(65, 65)
 layout_mode = 2
 offset_left = 1022.0
 offset_top = 50.0
-offset_right = 1102.0
-offset_bottom = 130.0
+offset_right = 1122.0
+offset_bottom = 150.0
 size_flags_horizontal = 6
 size_flags_vertical = 8
 focus_mode = 0
-icon = ExtResource("3_v86rl")
+theme = ExtResource("5_i6lef")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6cdou")
 icon_alignment = 1
 expand_icon = true
 
+[node name="CenterContainer" type="CenterContainer" parent="OptionsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="OptionsButton/CenterContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="OptionsButton/CenterContainer/Control"]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("3_v86rl")
+
 [node name="PictureOptionButton" type="Button" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(65, 50)
 layout_mode = 2
-offset_left = 800.0
+offset_left = 50.0
 offset_top = 400.0
-offset_right = 1050.0
+offset_right = 300.0
 offset_bottom = 450.0
 size_flags_horizontal = 6
 size_flags_vertical = 8
 focus_mode = 0
+theme = ExtResource("5_i6lef")
+theme_override_styles/normal = SubResource("StyleBoxFlat_13sgg")
 expand_icon = true
 
 [node name="StartButton" type="Button" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 offset_left = 430.0
-offset_top = 413.0
+offset_top = 400.0
 offset_right = 730.0
-offset_bottom = 513.0
+offset_bottom = 500.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
+theme = ExtResource("5_i6lef")
+theme_override_colors/font_hover_pressed_color = Color(0.921569, 0.768627, 0.0117647, 1)
+theme_override_colors/font_hover_color = Color(0.921569, 0.768627, 0.0117647, 1)
+theme_override_colors/font_color = Color(0.0862745, 0.129412, 0.266667, 1)
+theme_override_colors/font_pressed_color = Color(0.921569, 0.768627, 0.0117647, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_i6lef")
 text = "tr_start"
 
 [node name="CreditsButton" type="Button" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 65)
 layout_mode = 2
-offset_left = 130.0
-offset_top = 525.0
-offset_right = 380.0
-offset_bottom = 590.0
+offset_left = 50.0
+offset_top = 550.0
+offset_right = 350.0
+offset_bottom = 600.0
 size_flags_horizontal = 6
 size_flags_vertical = 8
 focus_mode = 0
+theme = ExtResource("5_i6lef")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70i5f")
 text = "tr_credits"
 
 [node name="ExitButton" type="Button" parent="."]
@@ -136,23 +238,42 @@ anchor_bottom = 0.5
 offset_left = -76.0
 offset_top = 201.0
 offset_right = 74.0
-offset_bottom = 266.0
+offset_bottom = 276.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 focus_mode = 0
-icon = ExtResource("3_g3eks")
+theme = ExtResource("5_i6lef")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ufwb2")
 icon_alignment = 1
 expand_icon = true
+
+[node name="CenterContainer" type="CenterContainer" parent="ExitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="ExitButton/CenterContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ExitButton/CenterContainer/Control"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_g3eks")
 
 [node name="DonateButton" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 800.0
-offset_top = 525.0
-offset_right = 1050.0
-offset_bottom = 590.0
+offset_left = 50.0
+offset_top = 475.0
+offset_right = 325.0
+offset_bottom = 525.0
+focus_mode = 0
+theme = ExtResource("5_i6lef")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mj5lg")
 keep_pressed_outside = true
 text = "tr_donate"
 icon = ExtResource("3_3jqqq")
@@ -193,6 +314,57 @@ theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 toggle_mode = true
 text = "tr_info"
 
+[node name="InstructionsMarginContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -204.0
+offset_right = 300.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="InstructionsMarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7jp70")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InstructionsMarginContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="InstructionsMarginContainer/PanelContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="InstructionLabel" type="Label" parent="InstructionsMarginContainer/PanelContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "tr_instructions"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="InstructionsCloseButton" type="Button" parent="InstructionsMarginContainer/PanelContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("5_i6lef")
+text = "Okay"
+
+[node name="Spacer2" type="Control" parent="InstructionsMarginContainer/PanelContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
 [node name="DonateMarginContainer" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -212,8 +384,13 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="DonateMarginContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i42df")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DonateMarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="DonateMarginContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 
 [node name="KoFiButton" type="Button" parent="DonateMarginContainer/PanelContainer/VBoxContainer"]
@@ -243,49 +420,17 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="DonateCloseButton" type="Button" parent="DonateMarginContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("5_i6lef")
 text = "Okay"
 
-[node name="InstructionsMarginContainer" type="MarginContainer" parent="."]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(600, 400)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -204.0
-offset_right = 300.0
-offset_bottom = 196.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="InstructionsMarginContainer"]
+[node name="Spacer2" type="Control" parent="DonateMarginContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4ytvr")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="InstructionsMarginContainer/PanelContainer"]
-layout_mode = 2
-
-[node name="InstructionLabel" type="Label" parent="InstructionsMarginContainer/PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "tr_instructions"
-autowrap_mode = 3
-
-[node name="InstructionsCloseButton" type="Button" parent="InstructionsMarginContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Okay"
 
 [node name="CreditMarginContainer" type="MarginContainer" parent="."]
 unique_name_in_owner = true
@@ -302,8 +447,13 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CreditMarginContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7jp70")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreditMarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CreditMarginContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 
 [node name="WerkRaumButton" type="Button" parent="CreditMarginContainer/PanelContainer/VBoxContainer"]
@@ -320,19 +470,26 @@ size_flags_vertical = 3
 bbcode_enabled = true
 text = "[center]Programming:
 
-Gregor Hermann
+[url=https://github.com/Dawn395/Pareido]Gregor Hermann[/url]
 
 Art:
 
 Ash Pahr
-Kati Babitsch
+[url=https://www.instagram.com/kasukraft/]Kasu Kraft[/url]
 [/center]"
 
 [node name="CreditCloseButton" type="Button" parent="CreditMarginContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("5_i6lef")
 text = "Okay"
+
+[node name="Spacer2" type="Control" parent="CreditMarginContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
 
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="PictureOptionButton" to="." method="_on_options_pressed"]
@@ -341,8 +498,9 @@ text = "Okay"
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="DonateButton" to="." method="_on_donate_button_pressed"]
 [connection signal="toggled" from="InfoButton" to="." method="_on_info_button_toggled"]
+[connection signal="pressed" from="InstructionsMarginContainer/PanelContainer2/VBoxContainer/InstructionsCloseButton" to="." method="_on_instructions_close_button_pressed"]
 [connection signal="pressed" from="DonateMarginContainer/PanelContainer/VBoxContainer/KoFiButton" to="." method="_on_ko_fi_button_pressed"]
 [connection signal="pressed" from="DonateMarginContainer/PanelContainer/VBoxContainer/DonateCloseButton" to="." method="_on_donate_close_button_pressed"]
-[connection signal="pressed" from="InstructionsMarginContainer/PanelContainer/VBoxContainer/InstructionsCloseButton" to="." method="_on_instructions_close_button_pressed"]
 [connection signal="pressed" from="CreditMarginContainer/PanelContainer/VBoxContainer/WerkRaumButton" to="." method="_on_werk_raum_button_pressed"]
+[connection signal="meta_clicked" from="CreditMarginContainer/PanelContainer/VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
 [connection signal="pressed" from="CreditMarginContainer/PanelContainer/VBoxContainer/CreditCloseButton" to="." method="_on_credit_button_pressed"]

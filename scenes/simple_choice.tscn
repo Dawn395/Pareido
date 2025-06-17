@@ -1,8 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://uh2bgk2dmj0n"]
+[gd_scene load_steps=9 format=3 uid="uid://uh2bgk2dmj0n"]
 
 [ext_resource type="Script" uid="uid://b65oukgby0tvb" path="res://scripts/simple_choice.gd" id="1_n16kn"]
-[ext_resource type="Texture2D" uid="uid://bjy8lleabrl4i" path="res://art/Background.png" id="1_oe1ob"]
+[ext_resource type="Texture2D" uid="uid://cxcthwch4kpcg" path="res://art/Pareido Background.png" id="2_4k47i"]
+[ext_resource type="Theme" uid="uid://cmd4o7svexfeo" path="res://main_button_theme.tres" id="3_4k47i"]
 [ext_resource type="Texture2D" uid="uid://8ns70xk4ruk5" path="res://art/ui/cancel.png" id="3_netu1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3uax"]
+bg_color = Color(0.129412, 0.658824, 0.890196, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trgig"]
+bg_color = Color(0.921569, 0.768627, 0.0117647, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qthob"]
+bg_color = Color(0.0862745, 0.129412, 0.266667, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4k47i"]
+bg_color = Color(0.129412, 0.658824, 0.890196, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="SimpleChoice" type="Control"]
 layout_mode = 3
@@ -15,8 +44,8 @@ script = ExtResource("1_n16kn")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
-scale = Vector2(115, 65)
-texture = ExtResource("1_oe1ob")
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("2_4k47i")
 centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -43,6 +72,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
+theme = ExtResource("3_4k47i")
+theme_override_colors/font_color = Color(0.0862745, 0.129412, 0.266667, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3uax")
 text = "Gemüse"
 
 [node name="OfficeButton" type="Button" parent="MarginContainer/GridContainer"]
@@ -51,6 +84,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
+theme = ExtResource("3_4k47i")
+theme_override_font_sizes/font_size = 50
 text = "Büro"
 
 [node name="VehicleButton" type="Button" parent="MarginContainer/GridContainer"]
@@ -59,6 +94,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
+theme = ExtResource("3_4k47i")
+theme_override_font_sizes/font_size = 50
 text = "Fahrzeuge"
 
 [node name="AnimalButton" type="Button" parent="MarginContainer/GridContainer"]
@@ -67,6 +104,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
+theme = ExtResource("3_4k47i")
+theme_override_colors/font_color = Color(0.0862745, 0.129412, 0.266667, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_trgig")
 text = "Tiere"
 
 [node name="ExitButton" type="Button" parent="."]
@@ -76,13 +117,15 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -92.0
-offset_top = 40.0
-offset_right = -42.0
+offset_left = -102.0
+offset_top = 20.0
+offset_right = -32.0
 offset_bottom = 90.0
 grow_horizontal = 0
-tooltip_text = "Beenden"
 focus_mode = 0
+theme = ExtResource("3_4k47i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qthob")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4k47i")
 icon = ExtResource("3_netu1")
 icon_alignment = 1
 expand_icon = true

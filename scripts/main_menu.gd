@@ -60,7 +60,7 @@ func _on_options_pressed() -> void:
 func _change_option_button() -> void:
 	match Singleton.pic_text_status:
 		0:
-			%PictureOptionButton.text = "Text"
+			%PictureOptionButton.text = "tr_text"
 			%PictureOptionButton.icon = null
 		1:
 			%PictureOptionButton.text = ""
@@ -69,7 +69,7 @@ func _change_option_button() -> void:
 			%PictureOptionButton.icon = texture
 			%PictureOptionButton.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		2:
-			%PictureOptionButton.text = "Bild und Text"
+			%PictureOptionButton.text = "tr_pic_and_text"
 			var image = Image.load_from_file("res://art/pics/vehicles/car.png")
 			var texture = ImageTexture.create_from_image(image)
 			%PictureOptionButton.icon = texture
@@ -93,7 +93,7 @@ func _on_donate_close_button_pressed() -> void:
 	%DonateMarginContainer.visible = false
 
 func _on_ko_fi_button_pressed() -> void:
-	OS.shell_open("https://ko-fi.com/")
+	OS.shell_open("https://ko-fi.com/pareido")
 
 func _on_instructions_close_button_pressed() -> void:
 	%InstructionsMarginContainer.visible = false
@@ -103,3 +103,6 @@ func _on_instructions_close_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	Singleton.goto_scene(Singleton.SCENE_OPTIONS)
+
+func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
+	OS.shell_open(str(meta))

@@ -16,6 +16,11 @@ func init(texturepath: String, texture: Texture, text: String,  checked: bool, i
 			Singleton.DIRNAMEFOLDER + "/" + Singleton.DIRNAMEPICS + "/"))
 	%ButtonText.text = text
 	%CheckBox.button_pressed = checked
+	
+	
+	#self.add_theme_color_override("icon_normal_color",Color(0.1, 0.1, 0.1))
+	self.alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
 	self.set_block_signals(true)
 	self.button_pressed = checked
 	self.set_block_signals(false)

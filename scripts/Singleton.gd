@@ -1,7 +1,9 @@
 extends Node
 
-#TODO Restart-Button hinzufügen, damit man sich die Bilder ansehen kann
 
+var threadArray := []
+var starttime
+const threadcount := 8
 
 var starting_infobox := true
 var running := false
@@ -39,6 +41,7 @@ var category = null
 var true_random := false
 var randomize_between_rounds := false
 var shake := false
+var wrong_guesses := 0
 var cur_rounds := 1 #the current round
 var rounds := 3 #the selected round setting
 var varieties := 8 #the selected maximum varieties setting
@@ -63,44 +66,60 @@ const SCENE_PLAYING = "res://scenes/game.tscn"
 const SIMPLE_CHOICE := "res://scenes/simple_choice.tscn"
 const SCENE_OPTIONS = "res://scenes/options.tscn"
 
-const TARGET :int = 200 # Target size for all sprites
-const POS_VAR :int = 50 # random position variance of sprites
+const TARGET :int = 160 # Target size for all sprites
+const POS_VAR :int = 25 # random position variance of sprites
 const MAX_ROTATION :float = deg_to_rad(45) # max degree that sprites are rotated
 var flip_pics := false
 var directory
 
 func _ready() -> void:
-	randomize()
 	await get_tree().process_frame
+	randomize()
+	starttime = Time.get_unix_time_from_system()
+	for i in range(threadcount):
+		threadArray.append(Thread.new())
 	var directory_script = load("res://scripts/directorys.gd")
 	
 	directory = directory_script.new()
 	
 	LANGUAGES = TranslationServer.get_loaded_locales()
-	#if OS.get_locale_language() in LANGUAGES:
-		#TranslationServer.set_locale(OS.get_locale_language())
-	#elif OS.get_locale() in LANGUAGES:
-		#TranslationServer.set_locale(OS.get_locale())
-	#else:
 	TranslationServer.set_locale("de")
 	
 	cur_language_nr = TranslationServer.get_loaded_locales().find(TranslationServer.get_locale())
-	#%FlagButton.icon = load("res://translations/%s" % tr("tr_picture_path"))
 	
 	var executeable_path :String = OS.get_executable_path().get_base_dir()
 	print_debug(executeable_path)
-	#match OS.get_name():
-		#"Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD", "Android", "iOS",  :
 	directory.create_dir(executeable_path)
+	starttime = Time.get_unix_time_from_system()
+	print("Loading started: " + str(starttime))
 	load_resources()
-	#"Android", "iOS", "Web":
-		#directory.load_resources("res://art/pics/")
+	print("Loading finished: " + str(Time.get_unix_time_from_system() - starttime))
 
 func load_resources():
 	pic_folders.clear()
 	pics.clear()
 	directory.load_resources("user://pareido_data/pictures")
+	var count = Singleton.pics.size()
+	for i in range(threadcount):
+		threadArray[i].start(load_multithread_pics.bind(
+				count * i / threadcount, (count * (i + 1) / threadcount) - 1))
 
+func load_multithread_pics(start:int , finish:int) -> void:
+	for i in range(start, finish + 1):
+		load_pic(i)
+	print("Thread finished: " + str(Time.get_unix_time_from_system() - starttime))
+	
+
+func load_pic(i :int) -> Texture:
+	if Singleton.pics[i][2] != null:
+		return Singleton.pics[i][2]
+	elif Singleton.pics[i][1] != null:
+		var image = Image.load_from_file(Singleton.pics[i][1])
+		var texture = ImageTexture.create_from_image(image)
+		Singleton.pics[i][2] = texture
+		return texture
+	else:
+		return null
 
 func create_tooltip(mouse_pos : Vector2, text :String) -> void:
 	if current_tooltip:

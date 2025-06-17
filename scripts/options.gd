@@ -1,6 +1,15 @@
 extends Control
 
 var double_click: bool = false
+var last_tree_item: TreeItem
+
+#TODO remember menu ausklapp status?
+#TODO fixate selection of vegetables?
+#TODO Restart-Button hinzufügen, damit man sich die Bilder ansehen kann
+#TODO Bilderbuttons nicht ganz am rand
+#TODO Doubleklick einfärben
+#TODO Deutsche Übersetzung für Anleitung
+#TODO MainMenu Panel einfärbung bei spnenden etc
 
 func _ready():
 	%VarietiesHSlider.max_value = Singleton.MAX_VARIETIES
@@ -16,6 +25,7 @@ func _ready():
 	
 	Singleton.pic_text_status = Singleton.config.get_value("global", "pic_text_status", 0)
 	_change_option_button()
+	
 	
 	var current_locale = TranslationServer.get_locale()
 	for locale in TranslationServer.get_loaded_locales():
@@ -58,6 +68,7 @@ func _create_tree_item(last_item :TreeItem, path: String) -> TreeItem:
 	var folderpath :String = path.trim_prefix(
 			Singleton.DIRNAMEFOLDER + "/" + Singleton.DIRNAMEPICS + "/")
 	var new_treeitem: TreeItem = null
+	var font: Font = load("res://art/MulledWineSeason-Medium.otf")
 	#print("folderpath:" + folderpath)
 	#print("lastitem: " + last_item.get_meta("path"))
 	#print("path: " + path )
@@ -67,20 +78,22 @@ func _create_tree_item(last_item :TreeItem, path: String) -> TreeItem:
 			new_treeitem = %Tree.create_item(last_item)
 			break
 		last_item = last_item.get_parent()
-	_setup_tree_item(new_treeitem, folderpath)
+	_setup_tree_item(new_treeitem, folderpath, font)
 	return new_treeitem
 
 
-func _setup_tree_item(item: TreeItem, folderpath: String):
+func _setup_tree_item(item: TreeItem, folderpath: String, font: Font):
 	var path: String = (Singleton.DIRNAMEFOLDER
 			.path_join(Singleton.DIRNAMEPICS).path_join(folderpath))
 	#var dir = DirAccess.open(path)
 	item.set_cell_mode(0, TreeItem.CELL_MODE_CHECK)
 	item.set_custom_minimum_height(40)
-	item.set_icon_max_width(0, 40)
+	item.set_icon_max_width(0, 100)
 	item.set_editable(0, true)
 	item.set_meta("path", folderpath)
 	item.set_meta("fullpath", path)
+	item.set_custom_font(0, font)
+	item.set_custom_font_size(0, 20)
 	tree_checkmark(item)
 	item.set_text(0, folderpath.get_file())
 	
@@ -88,6 +101,9 @@ func _setup_tree_item(item: TreeItem, folderpath: String):
 		#print("pic[1]: " + pic[1])
 		#print(path.get_base_dir())
 		if pic[1].get_base_dir() == path:
+			if pic[2] == null:
+				var image = Image.load_from_file(pic[1])
+				pic[2] = ImageTexture.create_from_image(image)
 			item.set_icon(0, pic[2])
 			break
 
@@ -135,7 +151,7 @@ func _on_tree_item_edited() -> void:
 	var item :TreeItem = %Tree.get_edited()
 	if double_click:
 		var true_items := 0
-		var total_items :=0
+		var total_items := 0
 		var results = _get_pic_counts(item.get_meta("fullpath"))
 		true_items = results [0]
 		total_items = results [1]
@@ -149,20 +165,27 @@ func _on_tree_item_edited() -> void:
 			for pic in Singleton.pics:
 				if pic[1].get_base_dir() == item.get_meta("fullpath"):
 					pic[0] = false
-	_populate_Pic_Grid_Container(item.get_meta("fullpath"), item)
+	if double_click or item != last_tree_item:
+		_populate_Pic_Grid_Container(item.get_meta("fullpath"), item)
 	tree_checkmark(item)
 	_labels_ok()
+	last_tree_item = item 
 
 
 func _populate_Pic_Grid_Container(path: String, treeitem: TreeItem) -> void:
 	for item in %PicGridContainer.get_children():
 		item.queue_free()
-	
+	var theme = load("res://option_button_theme.tres")
 	for pic in Singleton.pics:
 		if pic[1].get_base_dir() == path:
 			#print("worked!" + pic[1])
 			var button: Button = Singleton.OPTION_PICTURE_BUTTON.instantiate()
 			%PicGridContainer.add_child(button)
+			button.theme = theme
+			button.focus_mode = Control.FOCUS_NONE
+			if pic[2] == null:
+				var image = Image.load_from_file(pic[1])
+				pic[2] = ImageTexture.create_from_image(image)
 			button.init(pic[1], pic[2], pic[3], pic[0], treeitem, self)
 
 
@@ -249,3 +272,6 @@ func _on_reset_popup_button_pressed() -> void:
 
 func _on_shake_check_box_toggled(toggled_on: bool) -> void:
 	Singleton.config.set_value("global", "shake_pics", toggled_on)
+
+func _on_center_help_rich_text_label_meta_clicked(meta: Variant) -> void:
+	OS.shell_open("https://github.com/Dawn395/Pareido")

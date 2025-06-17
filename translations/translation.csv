@@ -9,17 +9,19 @@ tr_credits,Credits,Mitwirkende
 tr_info,Info,Info
 tr_donate,Donate,Spenden
 tr_options,Options,Optionen
-tr_instructions,,"Dieses Spiel zeigt dir verschiedene Bilder. Nachdem du auf Start gedrückt hast wird eines davon weggenommen. Klicke auf den Button, der dem entferntem Bild entspricht. Nach 3 Runden wird dir deine Zeit angezeigt."
+tr_instructions,This game shows you some pictures. After pressing Start one of them will be removed. Click on the corresponding button. After 3 rounds it will show you your time.,"Dieses Spiel zeigt dir verschiedene Bilder. Nachdem du auf Start gedrückt hast wird eines davon weggenommen. Klicke auf den Button, der dem entferntem Bild entspricht. Nach 3 Runden wird dir deine Zeit angezeigt."
 tr_kofi," If you like what we are doing, you can support us by clicking the above link ↑","Wenn dir gefällt was wir machen, unterstütze uns indem du auf den Link oben klickst ↑"
 tr_credits,Credits,Mitwirkende
 tr_bildlabel,picturedisplay:,Bildanzeige:
 tr_language_selection,  Language: ,  Sprache:
-tr_text,Text,Text
-tr_pic_and_text,Picture and Text,Bild und Text
-tr_reset_startbox,reset Start Infobox,Zurücksetzen der Start Infobox
+tr_text,text,Text
+tr_pic_and_text,pic and text,Bild und Text
+tr_reset_startbox,reset Start-Infobox,Zurücksetzen der Start-Infobox
 tr_true_random, true random (the same pic can be missing 2x in a row), Wahrer Zufall (dasselbe Bild kann 2x hintereinander fehlen)
 tr_randomize_pics, pics will be newly randomized betweeen rounds, Bilder werden zwischen den Runden neu ausgewählt
 tr_shake_pics, pics will be shaken around, Bilder werden herumgeschüttelt
+tr_time, Your time: , Deine Zeit: 
+tr_guesses, Wrong guesses: , Falsch geraten: 
 ,,
 tr_cat,Cat,Katze
 tr_dog,Dog,Hund
@@ -140,6 +142,10 @@ tr_fo,Faroe Islands,Färöer-Inseln
 tr_fr,France,Frankreich
 tr_ga,Gabon,Gabon
 tr_gb,United Kingdom,Vereinigtes Königreich
+tr_gb-eng,England,England
+tr_gb-nir,Northern Ireland,Nordirland
+tr_gb-sct,Scotland,Schottland
+tr_gb-wls,Wales,Wales
 tr_gd,Grenada,Grenada
 tr_ge,Georgia,Georgien
 tr_gf,French Guiana,Französisch-Guayana
@@ -152,6 +158,7 @@ tr_gn,Guinea,Guinea
 tr_gp,Guadeloupe,Guadeloupe
 tr_gq,Equatorial Guinea,Äquatorialguinea
 tr_gr,Greece,Griechenland
+tr_gs,South Georgia,Südgeorgien
 tr_gt,Guatemala,Guatemala
 tr_gu,Guam,Guam
 tr_gw,Guinea-Bissau,Guinea-Bissau
@@ -306,6 +313,7 @@ tr_vn,Vietnam,Vietnam
 tr_vu,Vanuatu,Vanuatu
 tr_wf,Wallis and Futuna,Wallis und Futuna
 tr_ws,Samoa,Samoa
+tr_xk,Kosovo,Kosovo
 tr_ye,Yemen,Jemen
 tr_yt,Mayotte,Mayotte
 tr_za,South Africa,Südafrika

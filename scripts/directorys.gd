@@ -45,10 +45,8 @@ func load_resources(path: String) -> void:
 	load_pics(path, path)
 	if dir.dir_exists(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEFONT)):
 		load_font(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEFONT))
-		
 
-
-func load_config(path: String):
+func load_config(path: String) -> void:
 	Singleton.config = ConfigFile.new()
 	if Singleton.config.load(path) != OK:
 		Singleton.config = ConfigFile.new()
@@ -66,8 +64,9 @@ func load_pics(basepath: String, path: String) -> void:
 		for file in dir.get_files():
 			if not (file.to_lower().ends_with(".txt")
 					or file.to_lower().ends_with(".import")):
-				var image = Image.load_from_file(path.path_join(file))
-				var texture = ImageTexture.create_from_image(image)
+				#var image = Image.load_from_file(path.path_join(file))
+				#var texture = ImageTexture.create_from_image(image)
+				var texture = null
 				var filename = "tr_" + file.get_basename()
 				
 				if tr(filename) == filename:

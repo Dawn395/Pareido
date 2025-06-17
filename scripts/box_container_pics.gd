@@ -13,7 +13,7 @@ func delete_pics() -> void:
 func populate() -> void:
 	var validPicArray = []
 	
-	print("Categories: " + str(Singleton.category))
+	print("Categorie: " + str(Singleton.category))
 	if Singleton.category == null:
 		for pic in Singleton.pics:
 			if pic[0]:
@@ -25,15 +25,18 @@ func populate() -> void:
 					Singleton.DIRNAMEFOLDER + "/" + Singleton.DIRNAMEPICS + "/").get_base_dir()
 			if Singleton.category == category:
 				validPicArray.push_back(pic)
-	
 	validPicArray.shuffle()
-	if Singleton.first_round or not Singleton.running:
+	
+	if Singleton.first_round and not Singleton.running:
 		Singleton.picArray.clear()
 		for i in range(Singleton.varieties):
 			Singleton.picArray.push_back(validPicArray[i])
 	
 	delete_buttons()
 	for pic in Singleton.picArray:
+		if pic[2] == null:
+			var image = Image.load_from_file(pic[1])
+			pic[2] = ImageTexture.create_from_image(image)
 		gen_button(pic[1], pic[2], pic[3])
 	sort_buttons()
 	distribute_buttons()

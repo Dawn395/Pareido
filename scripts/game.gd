@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	await get_tree().process_frame
 	
+	%StartContainer.visible = false
 	if Singleton.category == null:
 		Singleton.true_random = Singleton.config.get_value("global", "true_random", false)
 		Singleton.randomize_between_rounds = Singleton.config.get_value("global", "randomize_between_rounds", false)
@@ -15,20 +16,20 @@ func _ready():
 		Singleton.randomize_between_rounds = false
 		Singleton.varieties = 8
 		Singleton.rounds = 3
-		Singleton.shake = true
+		Singleton.shake = false
 	Singleton.cur_rounds = 1
+	Singleton.wrong_guesses = 0
 	Singleton.running = false
 	%VBoxContainerPics.delete_buttons()
 	%VBoxContainerPics.populate()
 	exit_button_reset()
-
 
 func exit_button_reset() -> void:
 	await get_tree().process_frame
 	if %VBoxContainerRight.visible:
 		%ExitButton.global_position.x = 1120 - %VBoxContainerRight.size.x - %ExitButton.size.x
 	else:
-		%ExitButton.global_position.x = 1072 # TODO Check if still correct
+		%ExitButton.global_position.x = 1070
 
 
 func _on_layout_button_pressed() -> void:
@@ -42,6 +43,7 @@ func _on_layout_button_pressed() -> void:
 func _on_start_button_pressed() -> void:
 	Singleton.first_round = true
 	_switch_buttons()
+	Singleton.wrong_guesses = 0
 	%StartButton.visible = false
 	%LayoutButton.visible = false
 	%StartContainer.visible = false
@@ -53,7 +55,6 @@ func _on_start_button_pressed() -> void:
 	%GuessTimer.stop()
 	%GuessTimer.paused = false
 	%GuessTimer.start()
-#	missingVeg = missingScene
 
 
 func on_button_press(pressedButton: Button, path: String) -> void:
@@ -67,6 +68,7 @@ func on_button_press(pressedButton: Button, path: String) -> void:
 			pressedButton.add_theme_color_override("font_disabled_color", Color(0, 1, 0))
 		else:
 			%DisabledTimer.start()
+			Singleton.wrong_guesses += 1
 			pressedButton.add_theme_color_override("font_color", Color(1, 0, 0))
 			pressedButton.add_theme_color_override("font_focus_color", Color(1, 0, 0))
 			pressedButton.add_theme_color_override("font_disabled_color", Color(1, 0, 0))
@@ -88,6 +90,7 @@ func _on_correct_timer_timeout() -> void:
 		%TimeLabel.visible = true
 		%StartButton.visible = true
 		%TimeLabel.text = "%.2f" % (%GuessTimer.wait_time - %GuessTimer.time_left - Singleton.rounds * %CorrectTimer.wait_time)
+		%GuessesLabel.text = str(Singleton.wrong_guesses) + " "
 		Singleton.running = not Singleton.running
 	else:
 		%VBoxContainerPics.delete_pics()
