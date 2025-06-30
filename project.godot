@@ -35,7 +35,7 @@ buttons=""
 
 [gui]
 
-theme/custom="res://theme.tres"
+theme/custom="res://themes/theme.tres"
 
 [internationalization]
 

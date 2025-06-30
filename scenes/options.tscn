@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://cdt6pmge1gs5g" path="res://scripts/options.gd" id="1_yjkok"]
 [ext_resource type="Texture2D" uid="uid://cxcthwch4kpcg" path="res://art/Pareido Background.png" id="2_o7i7e"]
 [ext_resource type="Texture2D" uid="uid://8ns70xk4ruk5" path="res://art/ui/cancel.png" id="3_kv8mn"]
-[ext_resource type="Theme" uid="uid://cmd4o7svexfeo" path="res://main_button_theme.tres" id="3_o7i7e"]
+[ext_resource type="Theme" uid="uid://cmd4o7svexfeo" path="res://themes/main_button_theme.tres" id="3_o7i7e"]
 [ext_resource type="Texture2D" uid="uid://nge2rkkgywwm" path="res://art/ui/accept.png" id="4_1sggn"]
 [ext_resource type="Texture2D" uid="uid://dnm4iiomorba7" path="res://art/ui/options.png" id="4_e6vpq"]
-[ext_resource type="Theme" uid="uid://cemlxn27frmx0" path="res://theme.tres" id="8_85aq5"]
-[ext_resource type="Theme" uid="uid://jkb3xqa4m2gt" path="res://option_button_theme.tres" id="8_uon5e"]
-[ext_resource type="Script" uid="uid://b1r8bk40gvfcx" path="res://scenes/RichTextLabelTranslate.gd" id="9_85aq5"]
+[ext_resource type="Theme" uid="uid://cemlxn27frmx0" path="res://themes/theme.tres" id="8_85aq5"]
+[ext_resource type="Theme" uid="uid://jkb3xqa4m2gt" path="res://themes/option_button_theme.tres" id="8_uon5e"]
+[ext_resource type="Script" uid="uid://b1r8bk40gvfcx" path="res://scripts/RichTextLabelTranslate.gd" id="9_85aq5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uon5e"]
 bg_color = Color(0.270588, 0.301961, 0.411765, 1)

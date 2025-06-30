@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dnm4iiomorba7" path="res://art/ui/options.png" id="3_v86rl"]
 [ext_resource type="Texture2D" uid="uid://6b4h6chrg1xf" path="res://art/Pareido_Logo.png" id="4_13sgg"]
 [ext_resource type="Texture2D" uid="uid://bug3cdmx1bkgv" path="res://art/myfullLogoKofi.png" id="4_vs408"]
-[ext_resource type="Theme" uid="uid://cmd4o7svexfeo" path="res://main_button_theme.tres" id="5_i6lef"]
+[ext_resource type="Theme" uid="uid://cmd4o7svexfeo" path="res://themes/main_button_theme.tres" id="5_i6lef"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cdou"]
 bg_color = Color(0.129412, 0.658824, 0.890196, 1)
