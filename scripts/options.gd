@@ -3,14 +3,6 @@ extends Control
 var double_click: bool = false
 var last_tree_item: TreeItem
 
-#TODO remember menu ausklapp status?
-#TODO fixate selection of vegetables?
-#TODO Restart-Button hinzufügen, damit man sich die Bilder ansehen kann
-#TODO Bilderbuttons nicht ganz am rand
-#TODO Doubleklick einfärben
-#TODO Deutsche Übersetzung für Anleitung
-#TODO MainMenu Panel einfärbung bei spnenden etc
-
 func _ready():
 	%VarietiesHSlider.max_value = Singleton.MAX_VARIETIES
 	Singleton.varieties = Singleton.config.get_value("global", "varieties", 8)
@@ -145,6 +137,8 @@ func _get_pic_counts (string :String) -> Array:
 	return [true_items, total_items]
 
 func _on_tree_item_edited() -> void:
+	%TopHelpRichTextLabel.visible = false
+	%CenterHelpRichTextLabel.visible = false
 	%TopHelpLabel.visible = false
 	%CenterHelpLabel.visible = false
 	%BottomHelpLabel.visible = false
@@ -266,6 +260,9 @@ func _on_rounds_h_slider_value_changed(value: float) -> void:
 func _on_language_option_button_item_selected(index: int) -> void:
 	TranslationServer.set_locale(%LanguageOptionButton.get_item_metadata(index))
 	Singleton.config.set_value("global", "language", %LanguageOptionButton.get_item_metadata(index))
+	%TopHelpRichTextLabel.translate()
+	%CenterHelpRichTextLabel.translate()
+	$VBoxContainer/Panel/BottomHelpRichTextLabel.translate()
 
 func _on_reset_popup_button_pressed() -> void:
 	Singleton.config.set_value("global", "starting_infobox", true)

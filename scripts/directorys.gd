@@ -11,9 +11,9 @@ func create_dir(executeable_path: String) -> void:
 	copy_pics("res://art/pics/", Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEPICS))
 	#Singleton.pic_folders = read_pic_dirs()
 	
-	dir.make_dir(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEFONT))
-	dir.copy("res://art/font/add_your_own_font.txt",
-			Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEFONT).path_join("add_your_own_font.txt"))
+	#dir.make_dir(Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEFONT))
+	#dir.copy("res://art/font/add_your_own_font.txt",
+	#		Singleton.DIRNAMEFOLDER.path_join(Singleton.DIRNAMEFONT).path_join("add_your_own_font.txt"))
 
 
 func copy_pics(src: String, dst: String) -> void:

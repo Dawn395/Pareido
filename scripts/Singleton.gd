@@ -1,5 +1,9 @@
 extends Node
 
+#TODO remember menu ausklapp status?
+#TODO fixate selection of vegetables?
+#TODO Restart-Button hinzufügen, damit man sich die Bilder ansehen kann
+#TODO Umprogrammierung der Start-Buttons ermöglichen
 
 var threadArray := []
 var starttime
@@ -95,6 +99,7 @@ func _ready() -> void:
 	load_resources()
 	print("Loading finished: " + str(Time.get_unix_time_from_system() - starttime))
 
+
 func load_resources():
 	pic_folders.clear()
 	pics.clear()
@@ -104,11 +109,12 @@ func load_resources():
 		threadArray[i].start(load_multithread_pics.bind(
 				count * i / threadcount, (count * (i + 1) / threadcount) - 1))
 
+
 func load_multithread_pics(start:int , finish:int) -> void:
 	for i in range(start, finish + 1):
 		load_pic(i)
 	print("Thread finished: " + str(Time.get_unix_time_from_system() - starttime))
-	
+
 
 func load_pic(i :int) -> Texture:
 	if Singleton.pics[i][2] != null:
@@ -121,6 +127,7 @@ func load_pic(i :int) -> Texture:
 	else:
 		return null
 
+
 func create_tooltip(mouse_pos : Vector2, text :String) -> void:
 	if current_tooltip:
 		current_tooltip.free()
@@ -130,7 +137,6 @@ func create_tooltip(mouse_pos : Vector2, text :String) -> void:
 
 
 func exit_game() -> void:
-	#TODO write settings to config?
 	get_tree().quit()
 
 

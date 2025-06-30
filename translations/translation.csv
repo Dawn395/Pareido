@@ -23,6 +23,18 @@ tr_shake_pics, pics will be shaken around, Bilder werden herumgeschüttelt
 tr_time, Your time: , Deine Zeit: 
 tr_guesses, Wrong guesses: , Falsch geraten: 
 ,,
+tr_helptop1,Select a folder on the left side,Wähle lniks einen Ordner aus
+tr_helptop2,to choose which pictures you want to play with.,um auszuwählen mit welchen Bildern du spielen willst.
+tr_helptop3,to select/deselect everything in a folder.,um alles in einem Order auszuwählen.
+tr_doubleclick,Doubleclick,Doppelklicke
+tr_helpmid1,"If you start this game as an Admin on PC,","Wenn du das Spiel als Admin am PC startest,"
+tr_helpmid2,there is a folder-link where you can,gibt es eine Verknüpfung mit der du
+tr_helpmid3,change the pictures and include your own.,die Bilder ändern kannst.
+tr_helpmid4,"If you want to share your pictures with everyone,","Möchtest du deine Bilder mit anderen teilen,"
+tr_contact,contact us,Kontaktiere uns
+tr_helpbottom1,this is how many different pictures are selected,Wie viele Bilder ausgewählt sind
+tr_helpbottom2,This is how many different pictures are used ,Wie viele Bilder verwendet werden
+,,
 tr_cat,Cat,Katze
 tr_dog,Dog,Hund
 tr_frog,Frog,Frosch

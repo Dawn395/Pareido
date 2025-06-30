@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://iloyho4cn0ja"]
+[gd_scene load_steps=16 format=3 uid="uid://iloyho4cn0ja"]
 
 [ext_resource type="Script" uid="uid://cdt6pmge1gs5g" path="res://scripts/options.gd" id="1_yjkok"]
 [ext_resource type="Texture2D" uid="uid://cxcthwch4kpcg" path="res://art/Pareido Background.png" id="2_o7i7e"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dnm4iiomorba7" path="res://art/ui/options.png" id="4_e6vpq"]
 [ext_resource type="Theme" uid="uid://cemlxn27frmx0" path="res://theme.tres" id="8_85aq5"]
 [ext_resource type="Theme" uid="uid://jkb3xqa4m2gt" path="res://option_button_theme.tres" id="8_uon5e"]
+[ext_resource type="Script" uid="uid://b1r8bk40gvfcx" path="res://scenes/RichTextLabelTranslate.gd" id="9_85aq5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uon5e"]
 bg_color = Color(0.270588, 0.301961, 0.411765, 1)
@@ -226,6 +227,7 @@ theme = ExtResource("8_uon5e")
 columns = 2
 
 [node name="TopHelpRichTextLabel" type="RichTextLabel" parent="VBoxContainer/Panel"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
@@ -235,9 +237,10 @@ theme = ExtResource("8_85aq5")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
-text = "🠐 Select a folder on the left side
- to choose which pictures you want to play with.
-[color=#ebc403] Doubleclick[/color] to select/deselect everything in a folder"
+text = "🠐 tr_helptop1_
+tr_helptop2_
+[color=#ebc403]tr_doubleclick_[/color] tr_helptop3_"
+script = ExtResource("9_85aq5")
 
 [node name="CenterHelpRichTextLabel" type="RichTextLabel" parent="VBoxContainer/Panel"]
 unique_name_in_owner = true
@@ -257,11 +260,56 @@ theme = ExtResource("8_85aq5")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
-text = "If you start this game as an Admin on PC, 
-there is a folder-link where you can 
-change the pictures and include your own.
-If you want to share your pictures with everyone,
-[color=#21a8e3][url={https://github.com/Dawn395/Pareido}]contact us[/url][/color]!"
+text = "tr_helpmid1_
+tr_helpmid2_
+tr_helpmid3_
+tr_helpmid4_
+[color=#21a8e3][url={https://github.com/Dawn395/Pareido}]tr_contact_[/url][/color]!"
+script = ExtResource("9_85aq5")
+
+[node name="BottomHelpRichTextLabel" type="RichTextLabel" parent="VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -606.0
+offset_top = -119.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("8_85aq5")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "tr_helpbottom1_
+tr_helpbottom2_  ↴    🠃"
+horizontal_alignment = 2
+vertical_alignment = 2
+script = ExtResource("9_85aq5")
+
+[node name="TestRichTextLabel2" type="RichTextLabel" parent="VBoxContainer/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.0
+offset_top = 77.0
+offset_right = 268.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_85aq5")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "test tr_potato_ test"
+script = ExtResource("9_85aq5")
 
 [node name="TopHelpLabel" type="Label" parent="VBoxContainer/Panel"]
 unique_name_in_owner = true
@@ -299,6 +347,7 @@ If you want to share your pictures with everyone,
 
 [node name="BottomHelpLabel" type="Label" parent="VBoxContainer/Panel"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -499,6 +548,7 @@ size_flags_horizontal = 3
 [connection signal="pressed" from="HBoxContainer/AcceptButtonOld" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="meta_clicked" from="VBoxContainer/Panel/CenterHelpRichTextLabel" to="." method="_on_center_help_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="VBoxContainer/Panel/TestRichTextLabel2" to="." method="_on_center_help_rich_text_label_meta_clicked"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VarietiesHSlider" to="." method="_on_varieties_h_slider_value_changed"]
 [connection signal="item_selected" from="OptionsPanel/HBoxContainer/VBoxContainer/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
 [connection signal="value_changed" from="OptionsPanel/HBoxContainer/VBoxContainer/RoundsButton/HBoxContainer/RoundsHSlider" to="." method="_on_rounds_h_slider_value_changed"]

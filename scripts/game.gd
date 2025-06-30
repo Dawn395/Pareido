@@ -5,18 +5,14 @@ func _ready():
 	
 	%StartContainer.visible = false
 	if Singleton.category == null:
-		Singleton.true_random = Singleton.config.get_value("global", "true_random", false)
-		Singleton.randomize_between_rounds = Singleton.config.get_value("global", "randomize_between_rounds", false)
 		Singleton.varieties = Singleton.config.get_value("global", "varieties", 8)
-		Singleton.rounds = Singleton.config.get_value("global", "rounds", 3)
-		Singleton.pic_text_status = Singleton.config.get_value("global", "pic_text_status", 0)
-		Singleton.shake = Singleton.config.get_value("global", "shake_pics", true)
 	else:
-		Singleton.true_random = false
-		Singleton.randomize_between_rounds = false
 		Singleton.varieties = 8
-		Singleton.rounds = 3
-		Singleton.shake = false
+	Singleton.true_random = Singleton.config.get_value("global", "true_random", false)
+	Singleton.randomize_between_rounds = Singleton.config.get_value("global", "randomize_between_rounds", false)
+	Singleton.rounds = Singleton.config.get_value("global", "rounds", 3)
+	Singleton.pic_text_status = Singleton.config.get_value("global", "pic_text_status", 0)
+	Singleton.shake = Singleton.config.get_value("global", "shake_pics", true)
 	Singleton.cur_rounds = 1
 	Singleton.wrong_guesses = 0
 	Singleton.running = false
